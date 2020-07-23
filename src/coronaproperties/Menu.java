@@ -7,6 +7,7 @@ package coronaproperties;
 
 import java.awt.Color;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,6 +36,7 @@ public class Menu extends javax.swing.JFrame {
         btnDisplay = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -58,6 +60,14 @@ public class Menu extends javax.swing.JFrame {
         btnDelete.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnDelete.setText("Delete Property");
 
+        btnExit.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -71,21 +81,26 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnDisplay)
-                            .addComponent(btnAdd))))
+                            .addComponent(btnAdd)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(btnExit)))
                 .addContainerGap(310, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(50, 50, 50)
                 .addComponent(btnAdd)
-                .addGap(78, 78, 78)
+                .addGap(76, 76, 76)
                 .addComponent(btnDisplay)
-                .addGap(120, 120, 120)
+                .addGap(73, 73, 73)
                 .addComponent(btnUpdate)
-                .addGap(100, 100, 100)
+                .addGap(103, 103, 103)
                 .addComponent(btnDelete)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addComponent(btnExit)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -120,6 +135,17 @@ public class Menu extends javax.swing.JFrame {
 
         System.gc();
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        int option = JOptionPane.showConfirmDialog(null, "Do you really want to exit?", "Are you sure", JOptionPane.YES_NO_OPTION);
+        /*
+         * 0 = yes
+         * 1 = no
+         */
+        if (option == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +194,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDisplay;
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

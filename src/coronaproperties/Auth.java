@@ -42,7 +42,7 @@ public class Auth {
     private static void getData() {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("/home/***REMOVED***/auth.txt"));
+            reader = new BufferedReader(new FileReader("/home/username/auth.txt"));
             String rec = reader.readLine();
             String remain = "";
 

@@ -29,7 +29,7 @@ public class LoadingScreen {
         spl.setVisible(true);
         try {
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(50);
+                Thread.sleep(30);
                 spl.lblHouse.setText(Integer.toString(i) + "%");
                 spl.bar.setValue(i);
 

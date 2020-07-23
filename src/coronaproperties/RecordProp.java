@@ -5,18 +5,15 @@
  */
 package coronaproperties;
 
-import java.awt.Color;
-import java.awt.Toolkit;
-
 /**
  *
  * @author Melvin K
  */
-public class Menu extends javax.swing.JFrame {
+public class RecordProp extends javax.swing.JFrame {
     /**
-     * Creates new form Menu
+     * Creates new form RecordProp
      */
-    public Menu() {
+    public RecordProp() {
         initComponents();
     }
 
@@ -31,61 +28,22 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnAdd = new javax.swing.JButton();
-        btnDisplay = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
-
-        btnAdd.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnAdd.setText("Add Property");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-
-        btnDisplay.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnDisplay.setText("View Property");
-
-        btnUpdate.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnUpdate.setText("Update Property");
-
-        btnDelete.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnDelete.setText("Delete Property");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(301, 301, 301)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnDisplay)
-                            .addComponent(btnAdd))))
-                .addContainerGap(310, Short.MAX_VALUE))
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(btnAdd)
-                .addGap(78, 78, 78)
-                .addComponent(btnDisplay)
-                .addGap(120, 120, 120)
-                .addComponent(btnUpdate)
-                .addGap(100, 100, 100)
-                .addComponent(btnDelete)
-                .addContainerGap(104, Short.MAX_VALUE))
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,21 +63,6 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        this.dispose();
-
-        RecordProp aRecordProp = new RecordProp();
-        aRecordProp.setTitle("Add New Property");
-        aRecordProp.setOpacity((float) 0.9);
-        aRecordProp.setBackground(new Color(0, 0, 0, 0));
-        aRecordProp.setIconImage(Toolkit.getDefaultToolkit().
-                getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
-        aRecordProp.setLocationRelativeTo(null);
-        aRecordProp.setVisible(true);
-
-        System.gc();
-    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,13 +86,13 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecordProp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecordProp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecordProp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RecordProp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -158,17 +101,13 @@ public class Menu extends javax.swing.JFrame {
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new RecordProp().setVisible(true);
             }
 
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnDisplay;
-    private javax.swing.JButton btnUpdate;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

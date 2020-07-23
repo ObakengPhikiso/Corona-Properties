@@ -1,5 +1,7 @@
 package coronaproperties;
 
+import java.awt.Color;
+import java.awt.Toolkit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -12,6 +14,16 @@ public class Valid {
         if (isEmail(emailString) && validatePassword(passString)) {
             Auth auth = new Auth(emailString, passString);
         } else {
+            Login loginScreen = new Login();
+
+            loginScreen.setTitle("Login");
+            loginScreen.setOpacity((float) 0.9);
+            loginScreen.setBackground(new Color(0, 0, 0, 0));
+            loginScreen.setIconImage(Toolkit.getDefaultToolkit().
+                    getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+            loginScreen.setLocationRelativeTo(null);
+            loginScreen.setVisible(true);
+
             JOptionPane.showMessageDialog(null, "Email or Password does NOT meet minimum requirements!");
         }
     }

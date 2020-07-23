@@ -43,6 +43,8 @@ public class LoadingScreen {
                     Login loginScreen = new Login();
 
                     loginScreen.setTitle("Login");
+                    loginScreen.setOpacity((float) 0.9);
+                    loginScreen.setBackground(new Color(0, 0, 0, 0));
                     loginScreen.setIconImage(Toolkit.getDefaultToolkit().
                             getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
                     loginScreen.setLocationRelativeTo(null);

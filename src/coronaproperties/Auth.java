@@ -23,9 +23,18 @@ public class Auth {
         if (authenticate(emailString, passString)) {
 
             closeLoginScreen();
-
             openMenu();
         } else {
+            Login loginScreen = new Login();
+
+            loginScreen.setTitle("Login");
+            loginScreen.setOpacity((float) 0.9);
+            loginScreen.setBackground(new Color(0, 0, 0, 0));
+            loginScreen.setIconImage(Toolkit.getDefaultToolkit().
+                    getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+            loginScreen.setLocationRelativeTo(null);
+            loginScreen.setVisible(true);
+
             JOptionPane.showMessageDialog(null, "Email or Password is incorrect!");
         }
     }
@@ -35,8 +44,6 @@ public class Auth {
         try {
             reader = new BufferedReader(new FileReader("/home/***REMOVED***/auth.txt"));
             String rec = reader.readLine();
-
-//            System.out.println("\n\n" + rec);
             String remain = "";
 
             while (rec != null) {
@@ -45,15 +52,11 @@ public class Auth {
                 authentic.emailString = rec.substring(0, rec.indexOf("#"));
                 remain = rec.substring(rec.indexOf("#") + 1, rec.length());
 
-//                System.out.println("\n\n" + remain);
                 authentic.passString = remain;
 
                 rec = reader.readLine();
             }
             reader.close();
-//            System.out.println("\n\n"
-//                    + "Email: " + authentic.emailString
-//                    + "\nPassword: " + authentic.passString);
         } catch (Exception e) {
             e.printStackTrace();
         }

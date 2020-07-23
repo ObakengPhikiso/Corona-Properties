@@ -13,12 +13,13 @@ import java.awt.Toolkit;
  * @author MightyBeatz
  */
 public class LoadingScreen {
-    private static Splash spl = new Splash();
     LoadingScreen() {
         splash();
     }
 
     private static void splash() {
+        Splash spl = new Splash();
+
         spl.setTitle("Corona Properties");
         spl.setOpacity((float) 0.9);
         spl.setBackground(new Color(0, 0, 0, 0));

@@ -6,6 +6,7 @@
 package coronaproperties;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 
 /**
  *
@@ -21,6 +22,8 @@ public class screen {
         spl.setTitle("Corona Properties");
         spl.setOpacity((float) 0.9);
         spl.setBackground(new Color(0, 0, 0, 0));
+        spl.setIconImage(Toolkit.getDefaultToolkit().
+                getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
         spl.setLocationRelativeTo(null);
         spl.setVisible(true);
         try {
@@ -34,8 +37,8 @@ public class screen {
                     Login loginScreen = new Login();
 
                     loginScreen.setTitle("Login");
-                    loginScreen.setOpacity((float) 0.9);
-//                    loginScreen.setBackground(new Color(0, 0, 0, 0));
+                    loginScreen.setIconImage(Toolkit.getDefaultToolkit().
+                            getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
                     loginScreen.setLocationRelativeTo(null);
                     loginScreen.setVisible(true);
                 }

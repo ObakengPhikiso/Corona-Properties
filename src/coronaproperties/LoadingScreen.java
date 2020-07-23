@@ -12,13 +12,13 @@ import java.awt.Toolkit;
  *
  * @author MightyBeatz
  */
-public class screen {
-    static Splash spl = new Splash();
-    screen() {
+public class LoadingScreen {
+    private static Splash spl = new Splash();
+    LoadingScreen() {
         splash();
     }
 
-    public static void splash() {
+    private static void splash() {
         spl.setTitle("Corona Properties");
         spl.setOpacity((float) 0.9);
         spl.setBackground(new Color(0, 0, 0, 0));
@@ -33,7 +33,12 @@ public class screen {
                 spl.bar.setValue(i);
 
                 if (i == 100) {
+
+                    //Close Splash screen
                     spl.dispose();
+                    System.gc();
+
+                    //Open Login Screen
                     Login loginScreen = new Login();
 
                     loginScreen.setTitle("Login");
@@ -44,7 +49,7 @@ public class screen {
                 }
             }
         } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 

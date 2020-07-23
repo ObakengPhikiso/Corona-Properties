@@ -7,7 +7,7 @@ import java.io.FileWriter;
  *
  * @author Melvin K
  */
-public class createProp {
+public class CreateProp {
     private static class Property {
         //fields
         private String propertyPrimaryKey;
@@ -30,7 +30,7 @@ public class createProp {
         private String email;
     }
     private static Property propertyInfo;
-    createProp(String propertyPrimaryKey, String propertyType, String addressNum, String addressStreet, String addressCity, String addressCode, double value, boolean construction, String useOfProperty, int room, int garage, int bath, double floorArea, double landArea, double rates, String description, String telephone, String email) {
+    CreateProp(String propertyPrimaryKey, String propertyType, String addressNum, String addressStreet, String addressCity, String addressCode, double value, boolean construction, String useOfProperty, int room, int garage, int bath, double floorArea, double landArea, double rates, String description, String telephone, String email) {
         propertyInfo = new Property();
         propertyInfo.propertyPrimaryKey = propertyPrimaryKey;
         propertyInfo.propertyType = propertyType;

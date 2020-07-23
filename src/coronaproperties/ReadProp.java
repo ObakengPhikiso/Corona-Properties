@@ -7,7 +7,7 @@ import java.io.FileReader;
  *
  * @author Melvin K
  */
-public class readProp {
+public class ReadProp {
     private static class Property {
         //fields
         private String propertyPrimaryKey;
@@ -30,7 +30,7 @@ public class readProp {
         private String email;
     }
     private static Property propertyInfo;
-    readProp() {
+    ReadProp() {
         displayData();
     }
 

@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  *
  * @author Melvin K
  */
-public class updateProp {
+public class DeleteProp {
     private static class Property {
         //fields
         private String propertyPrimaryKey;
@@ -34,9 +34,9 @@ public class updateProp {
         Property nextNode;
     }
     private static Property head = null, aux, newNode;
-    updateProp() {
+    DeleteProp() {
         readDataToQueue();
-        if (updateNodeFromQueue()) {
+        if (delNodeFromQueue()) {
             moveDataToFile();
         }
     }
@@ -114,67 +114,42 @@ public class updateProp {
                 rec = reader.readLine();
             }
             reader.close();
+            System.out.println("\n\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static boolean updateNodeFromQueue() {
+    private static boolean delNodeFromQueue() {
 
-        boolean updated = false;
+        boolean deleted = false;
+        aux = head;
+        Property aux2;
 
-        String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to update a property: ");
+        String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to delete a property:  ");
 
         if (checkBeforeInsert(propertyPrimaryKey)) {
 
-            String newPropertyPrimaryKey = JOptionPane.showInputDialog("Enter new property primary key: ");
-
-            String propertyType = JOptionPane.showInputDialog("Enter property type number: ");
-            String addressNum = JOptionPane.showInputDialog("Enter property address number: ");
-            String addressStreet = JOptionPane.showInputDialog("Enter property address street: ");
-            String addressCity = JOptionPane.showInputDialog("Enter property address city: ");
-            String addressCode = JOptionPane.showInputDialog("Enter property address code: ");
-            double value = Double.parseDouble(JOptionPane.showInputDialog("Enter property value: "));
-            boolean constructionComplete = Boolean.parseBoolean(JOptionPane.showInputDialog("Enter property construction status: "));
-            String useOfProperty = JOptionPane.showInputDialog("Enter property use of property: ");
-            int room = Integer.parseInt(JOptionPane.showInputDialog("Enter number of room(s) for property: "));
-            int garage = Integer.parseInt(JOptionPane.showInputDialog("Enter number of garage(s) for property: "));
-            int bath = Integer.parseInt(JOptionPane.showInputDialog("Enter number of bath(s) for property: "));
-            double floorArea = Double.parseDouble(JOptionPane.showInputDialog("Enter floor area for property: "));
-            double landArea = Double.parseDouble(JOptionPane.showInputDialog("Enter land area for property: "));
-            double rates = Double.parseDouble(JOptionPane.showInputDialog("Enter rates for property: "));
-            String description = JOptionPane.showInputDialog("Enter description for property: ");
-            String telephone = JOptionPane.showInputDialog("Enter telephone for property: ");
-            String email = JOptionPane.showInputDialog("Enter email for property: ");
             aux = head;
 
             do {
-                if (aux.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
-                    aux.propertyPrimaryKey = newPropertyPrimaryKey;
-                    aux.propertyType = propertyType;
-                    aux.addressNum = addressNum;
-                    aux.addressStreet = addressStreet;
-                    aux.addressCity = addressCity;
-                    aux.addressCode = addressCode;
-                    aux.value = value;
-                    aux.constructionComplete = constructionComplete;
-                    aux.useOfProperty = useOfProperty;
-                    aux.room = room;
-                    aux.garage = garage;
-                    aux.bath = bath;
-                    aux.floorArea = floorArea;
-                    aux.landArea = landArea;
-                    aux.rates = rates;
-                    aux.description = description;
-                    aux.telephone = telephone;
-                    aux.email = email;
+                if (head.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
+                    head = head.nextNode;
+                    aux2 = head;
 
-                    updated = true;
+                    deleted = true;
+                } else if (aux.nextNode != null) {
+                    if ((aux.nextNode.propertyPrimaryKey).compareTo(propertyPrimaryKey) == 0) {
+                        aux2 = aux.nextNode;
+                        aux.nextNode = aux2.nextNode;
+                        deleted = true;
+                    }
                 }
                 aux = aux.nextNode;
-
-            } while (!updated && aux != null);
-            JOptionPane.showMessageDialog(null, "Record updated successfully!");
+            } while (!deleted && aux != null);
+            aux2 = null;
+            System.gc();
+            JOptionPane.showMessageDialog(null, "Record deleted successfully!");
         } else {
             JOptionPane.showMessageDialog(null, "Property number does NOT exist!");
         }
@@ -182,7 +157,7 @@ public class updateProp {
 //        aMenu.setLocationRelativeTo(null);
 //        aMenu.setVisible(true);
 
-        return updated;
+        return deleted;
     }
 
     private static boolean checkBeforeInsert(String propertyPrimaryKey) {
@@ -206,7 +181,6 @@ public class updateProp {
             do {
                 indRec = aux.propertyPrimaryKey.concat("#").concat(aux.propertyType).concat("#").concat(aux.addressNum).concat("#").concat(aux.addressStreet).concat("#").concat(aux.addressCity).concat("#").concat(aux.addressCode).concat("#").concat(Double.toString(aux.value).concat("#").concat(Boolean.toString(aux.constructionComplete)).concat("#").concat(aux.useOfProperty).concat("#").concat(Integer.toString(aux.room)).concat("#").concat(Integer.toString(aux.garage)).concat("#").concat(Integer.toString(aux.bath)).concat("#").concat(Double.toString(aux.floorArea)).concat("#").concat(Double.toString(aux.landArea)).concat("#").concat(Double.toString(aux.rates)).concat("#").concat(aux.description).concat("#").concat(aux.telephone).concat("#").concat(aux.email).concat("\n"));
                 writter.write(indRec);
-
                 aux = aux.nextNode;
             } while (aux != null);
             writter.close();

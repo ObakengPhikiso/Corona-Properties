@@ -10,9 +10,8 @@ import javax.swing.JOptionPane;
  *
  * @author Melvin K
  */
-public class deleteProp {
+public class InsertProp {
     private static class Property {
-        //fields
         private String propertyPrimaryKey;
         private String propertyType;
         private String addressNum;
@@ -34,9 +33,9 @@ public class deleteProp {
         Property nextNode;
     }
     private static Property head = null, aux, newNode;
-    deleteProp() {
+    InsertProp() {
         readDataToQueue();
-        if (delNodeFromQueue()) {
+        if (insertNodeFromQueue()) {
             moveDataToFile();
         }
     }
@@ -112,52 +111,69 @@ public class deleteProp {
                 }
                 aux = newNode;
                 rec = reader.readLine();
+
             }
             reader.close();
-            System.out.println("\n\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static boolean delNodeFromQueue() {
+    private static boolean insertNodeFromQueue() {
 
-        boolean deleted = false;
-        aux = head;
-        Property aux2;
+        boolean inserted = false;
 
-        String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to delete a property:  ");
+        int position = Integer.parseInt(JOptionPane.showInputDialog("What position do you want to insert a new property?: "));
 
-        if (checkBeforeInsert(propertyPrimaryKey)) {
+        newNode = new Property();
+        newNode.propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key: ");
 
+        if (!checkBeforeInsert(newNode.propertyPrimaryKey)) {
             aux = head;
 
-            do {
-                if (head.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
-                    head = head.nextNode;
-                    aux2 = head;
+            newNode.propertyPrimaryKey = JOptionPane.showInputDialog("Enter new property primary key: ");
 
-                    deleted = true;
-                } else if (aux.nextNode != null) {
-                    if ((aux.nextNode.propertyPrimaryKey).compareTo(propertyPrimaryKey) == 0) {
-                        aux2 = aux.nextNode;
-                        aux.nextNode = aux2.nextNode;
-                        deleted = true;
-                    }
+            newNode.propertyType = JOptionPane.showInputDialog("Enter property type number: ");
+            newNode.addressNum = JOptionPane.showInputDialog("Enter property address number: ");
+            newNode.addressStreet = JOptionPane.showInputDialog("Enter property address street: ");
+            newNode.addressCity = JOptionPane.showInputDialog("Enter property address city: ");
+            newNode.addressCode = JOptionPane.showInputDialog("Enter property address code: ");
+            double value = Double.parseDouble(JOptionPane.showInputDialog("Enter property value: "));
+            boolean constructionComplete = Boolean.parseBoolean(JOptionPane.showInputDialog("Enter property construction status: "));
+            newNode.useOfProperty = JOptionPane.showInputDialog("Enter property use of property: ");
+            int room = Integer.parseInt(JOptionPane.showInputDialog("Enter number of room(s) for property: "));
+            int garage = Integer.parseInt(JOptionPane.showInputDialog("Enter number of garage(s) for property: "));
+            int bath = Integer.parseInt(JOptionPane.showInputDialog("Enter number of bath(s) for property: "));
+            double floorArea = Double.parseDouble(JOptionPane.showInputDialog("Enter floor area for property: "));
+            double landArea = Double.parseDouble(JOptionPane.showInputDialog("Enter land area for property: "));
+            double rates = Double.parseDouble(JOptionPane.showInputDialog("Enter rates for property: "));
+            newNode.description = JOptionPane.showInputDialog("Enter description for property: ");
+            newNode.telephone = JOptionPane.showInputDialog("Enter telephone for property: ");
+            newNode.email = JOptionPane.showInputDialog("Enter email for property: ");
+
+            newNode.nextNode = null;
+            int counter = 1;
+            if (position == 1) {
+                newNode.nextNode = head;
+                head = newNode;
+            } else {
+                while (counter < position - 1) {
+                    counter++;
+                    aux = aux.nextNode;
                 }
-                aux = aux.nextNode;
-            } while (!deleted && aux != null);
-            aux2 = null;
-            System.gc();
-            JOptionPane.showMessageDialog(null, "Record deleted successfully!");
+                newNode.nextNode = aux.nextNode;
+                aux.nextNode = newNode;
+            }
+            inserted = true;
+            JOptionPane.showMessageDialog(null, "Record inserted successfully!");
         } else {
-            JOptionPane.showMessageDialog(null, "Property number does NOT exist!");
+            JOptionPane.showMessageDialog(null, "Property number ALREADY exists!");
         }
 //        Menu aMenu = new Menu();
 //        aMenu.setLocationRelativeTo(null);
 //        aMenu.setVisible(true);
 
-        return deleted;
+        return inserted;
     }
 
     private static boolean checkBeforeInsert(String propertyPrimaryKey) {

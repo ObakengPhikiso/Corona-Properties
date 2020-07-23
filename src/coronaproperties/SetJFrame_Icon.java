@@ -10,7 +10,7 @@ import javax.swing.*;
 
 /**
  *
- * @author dir
+ * @author Melvin K
  */
 public class SetJFrame_Icon extends JFrame {
     SetJFrame_Icon() {

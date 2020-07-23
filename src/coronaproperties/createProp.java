@@ -55,7 +55,7 @@ public class createProp {
 
     private static void writeData() {
         String indRec = propertyInfo.propertyPrimaryKey.concat("#").concat(propertyInfo.propertyType).concat("#").concat(propertyInfo.addressNum).concat("#").concat(propertyInfo.addressStreet).concat("#").concat(propertyInfo.addressCity).concat("#").concat(propertyInfo.addressCode).concat("#").concat(Double.toString(propertyInfo.value).concat("#").concat(Boolean.toString(propertyInfo.constructionComplete)).concat("#").concat(propertyInfo.useOfProperty).concat("#").concat(Integer.toString(propertyInfo.room)).concat("#").concat(Integer.toString(propertyInfo.garage)).concat("#").concat(Integer.toString(propertyInfo.bath)).concat("#").concat(Double.toString(propertyInfo.floorArea)).concat("#").concat(Double.toString(propertyInfo.landArea)).concat("#").concat(Double.toString(propertyInfo.rates)).concat("#").concat(propertyInfo.description).concat("#").concat(propertyInfo.telephone).concat("#").concat(propertyInfo.email).concat("\n"));
-        File f = new File("/home/username/CoronaProperties.txt");
+        File f = new File("src/CoronaProperties.txt");
         try {
             FileWriter writter = null;
             if (f.createNewFile()) {

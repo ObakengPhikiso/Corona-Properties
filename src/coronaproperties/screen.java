@@ -5,6 +5,8 @@
  */
 package coronaproperties;
 
+import java.awt.Color;
+
 /**
  *
  * @author MightyBeatz
@@ -16,6 +18,9 @@ public class screen {
     }
 
     public static void splash() {
+        spl.setTitle("Corona Properties");
+        spl.setOpacity((float) 0.9);
+        spl.setBackground(new Color(0, 0, 0, 0));
         spl.setLocationRelativeTo(null);
         spl.setVisible(true);
         try {
@@ -26,9 +31,13 @@ public class screen {
 
                 if (i == 100) {
                     spl.dispose();
-                    Login lgin = new Login();
-                    lgin.setLocationRelativeTo(null);
-                    lgin.setVisible(true);
+                    Login loginScreen = new Login();
+
+                    loginScreen.setTitle("Login");
+                    loginScreen.setOpacity((float) 0.9);
+//                    loginScreen.setBackground(new Color(0, 0, 0, 0));
+                    loginScreen.setLocationRelativeTo(null);
+                    loginScreen.setVisible(true);
                 }
             }
         } catch (InterruptedException e) {

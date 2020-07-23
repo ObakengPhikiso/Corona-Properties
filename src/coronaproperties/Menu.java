@@ -28,22 +28,56 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnAdd = new javax.swing.JButton();
+        btnDisplay = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
+
+        btnAdd.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnAdd.setText("Add Property");
+
+        btnDisplay.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnDisplay.setText("View Property");
+
+        btnUpdate.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnUpdate.setText("Update Property");
+
+        btnDelete.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnDelete.setText("Delete Property");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(301, 301, 301)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnDisplay)
+                            .addComponent(btnAdd))))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnAdd)
+                .addGap(78, 78, 78)
+                .addComponent(btnDisplay)
+                .addGap(120, 120, 120)
+                .addComponent(btnUpdate)
+                .addGap(100, 100, 100)
+                .addComponent(btnDelete)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -108,6 +142,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDisplay;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

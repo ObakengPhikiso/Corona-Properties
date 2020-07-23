@@ -9,34 +9,31 @@ package coronaproperties;
  *
  * @author MightyBeatz
  */
-
 public class screen {
-    
     static Splash spl = new Splash();
-
     screen() {
         splash();
     }
-    
+
     public static void splash() {
+        spl.setLocationRelativeTo(null);
         spl.setVisible(true);
-         try{
-            for(int i =0;i <=100;i++)
-            {
+        try {
+            for (int i = 0; i <= 100; i++) {
                 Thread.sleep(50);
-                spl.lblHouse.setText(Integer.toString(i)+"%");
+                spl.lblHouse.setText(Integer.toString(i) + "%");
                 spl.bar.setValue(i);
-                
-                if(i==100)
-                {
+
+                if (i == 100) {
                     spl.dispose();
-                    new Login().setVisible(true);
+                    Login lgin = new Login();
+                    lgin.setLocationRelativeTo(null);
+                    lgin.setVisible(true);
                 }
             }
-        }
-        catch(InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
-    }   
+    }
+
 }

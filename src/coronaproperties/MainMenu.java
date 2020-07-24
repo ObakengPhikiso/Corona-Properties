@@ -39,6 +39,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         lblHeading = new javax.swing.JLabel();
         btnComparativeViews = new javax.swing.JButton();
+        btnComputation = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -96,10 +97,22 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnComputation.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnComputation.setText("Computations");
+        btnComputation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComputationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 227, Short.MAX_VALUE)
+                .addComponent(lblHeading)
+                .addGap(219, 219, 219))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -114,28 +127,29 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGap(281, 281, 281)
                         .addComponent(btnComparativeViews))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(312, 312, 312)
+                        .addGap(301, 301, 301)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnAdd)
-                            .addComponent(btnDisplay))))
+                            .addComponent(btnDisplay)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addComponent(btnComputation)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 227, Short.MAX_VALUE)
-                .addComponent(lblHeading)
-                .addGap(219, 219, 219))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(lblHeading)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(btnAdd)
-                .addGap(40, 40, 40)
+                .addGap(29, 29, 29)
                 .addComponent(btnDisplay)
-                .addGap(45, 45, 45)
+                .addGap(33, 33, 33)
                 .addComponent(btnComparativeViews)
-                .addGap(45, 45, 45)
+                .addGap(31, 31, 31)
+                .addComponent(btnComputation)
+                .addGap(32, 32, 32)
                 .addComponent(btnUpdate)
                 .addGap(37, 37, 37)
                 .addComponent(btnDelete)
@@ -233,6 +247,23 @@ public class MainMenu extends javax.swing.JFrame {
         System.gc();
     }//GEN-LAST:event_btnComparativeViewsActionPerformed
 
+    private void btnComputationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComputationActionPerformed
+        this.dispose();
+
+        //Open ComputationMenu
+        ComputationMenu aComputationMenu = new ComputationMenu();
+
+        aComputationMenu.setTitle("Corona Computation Menu");
+        aComputationMenu.setOpacity((float) 0.9);
+        aComputationMenu.setBackground(new Color(0, 0, 0, 0));
+        aComputationMenu.setIconImage(Toolkit.getDefaultToolkit().
+                getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+        aComputationMenu.setLocationRelativeTo(null);
+        aComputationMenu.setVisible(true);
+
+        System.gc();
+    }//GEN-LAST:event_btnComputationActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -280,6 +311,7 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnComparativeViews;
+    private javax.swing.JButton btnComputation;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDisplay;
     private javax.swing.JButton btnExit;

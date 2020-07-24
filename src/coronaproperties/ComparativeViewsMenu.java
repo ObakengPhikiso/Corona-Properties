@@ -163,7 +163,9 @@ public class ComparativeViewsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCompareByCityActionPerformed
 
     private void btnCompareByTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompareByTypeActionPerformed
-
+        String propertyType1 = JOptionPane.showInputDialog("Enter property type (Eg: House, Flat, Business): ");
+        String propertyType2 = JOptionPane.showInputDialog("Enter another property type (Eg: House, Flat, Business): ");
+        CompViewByType aCompViewByType = new CompViewByType(propertyType1, propertyType2);
     }//GEN-LAST:event_btnCompareByTypeActionPerformed
 
     private void btnCompareByUseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompareByUseActionPerformed

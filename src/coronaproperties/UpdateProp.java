@@ -1,5 +1,7 @@
 package coronaproperties;
 
+import java.awt.Color;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -123,64 +125,85 @@ public class UpdateProp {
 
         boolean updated = false;
 
-        String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to update a property: ");
+        try {
+            String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to update a property: ");
 
-        if (checkBeforeInsert(propertyPrimaryKey)) {
+            if (checkBeforeInsert(propertyPrimaryKey)) {
 
-            String newPropertyPrimaryKey = JOptionPane.showInputDialog("Enter new property primary key: ");
+                String newPropertyPrimaryKey = JOptionPane.showInputDialog("Enter new property primary key: ");
 
-            String propertyType = JOptionPane.showInputDialog("Enter property type number: ");
-            String addressNum = JOptionPane.showInputDialog("Enter property address number: ");
-            String addressStreet = JOptionPane.showInputDialog("Enter property address street: ");
-            String addressCity = JOptionPane.showInputDialog("Enter property address city: ");
-            String addressCode = JOptionPane.showInputDialog("Enter property address code: ");
-            double value = Double.parseDouble(JOptionPane.showInputDialog("Enter property value: "));
-            String constructionStatus = JOptionPane.showInputDialog("Enter property construction status: ");
-            String useOfProperty = JOptionPane.showInputDialog("Enter property use of property: ");
-            int room = Integer.parseInt(JOptionPane.showInputDialog("Enter number of room(s) for property: "));
-            int garage = Integer.parseInt(JOptionPane.showInputDialog("Enter number of garage(s) for property: "));
-            int bath = Integer.parseInt(JOptionPane.showInputDialog("Enter number of bath(s) for property: "));
-            double floorArea = Double.parseDouble(JOptionPane.showInputDialog("Enter floor area for property: "));
-            double landArea = Double.parseDouble(JOptionPane.showInputDialog("Enter land area for property: "));
-            double rates = Double.parseDouble(JOptionPane.showInputDialog("Enter rates for property: "));
-            String description = JOptionPane.showInputDialog("Enter description for property: ");
-            String telephone = JOptionPane.showInputDialog("Enter telephone for property: ");
-            String email = JOptionPane.showInputDialog("Enter email for property: ");
-            aux = head;
+                String propertyType = JOptionPane.showInputDialog("Enter property type number: ");
+                String addressNum = JOptionPane.showInputDialog("Enter property address number: ");
+                String addressStreet = JOptionPane.showInputDialog("Enter property address street: ");
+                String addressCity = JOptionPane.showInputDialog("Enter property address city: ");
+                String addressCode = JOptionPane.showInputDialog("Enter property address code: ");
+                double value = Double.parseDouble(JOptionPane.showInputDialog("Enter property value: "));
+                String constructionStatus = JOptionPane.showInputDialog("Enter property construction status: ");
+                String useOfProperty = JOptionPane.showInputDialog("Enter property use of property: ");
+                int room = Integer.parseInt(JOptionPane.showInputDialog("Enter number of room(s) for property: "));
+                int garage = Integer.parseInt(JOptionPane.showInputDialog("Enter number of garage(s) for property: "));
+                int bath = Integer.parseInt(JOptionPane.showInputDialog("Enter number of bath(s) for property: "));
+                double floorArea = Double.parseDouble(JOptionPane.showInputDialog("Enter floor area for property: "));
+                double landArea = Double.parseDouble(JOptionPane.showInputDialog("Enter land area for property: "));
+                double rates = Double.parseDouble(JOptionPane.showInputDialog("Enter rates for property: "));
+                String description = JOptionPane.showInputDialog("Enter description for property: ");
+                String telephone = JOptionPane.showInputDialog("Enter telephone for property: ");
+                String email = JOptionPane.showInputDialog("Enter email for property: ");
+                aux = head;
 
-            do {
-                if (aux.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
-                    aux.propertyPrimaryKey = newPropertyPrimaryKey;
-                    aux.propertyType = propertyType;
-                    aux.addressNum = addressNum;
-                    aux.addressStreet = addressStreet;
-                    aux.addressCity = addressCity;
-                    aux.addressCode = addressCode;
-                    aux.value = value;
-                    aux.constructionStatus = constructionStatus;
-                    aux.useOfProperty = useOfProperty;
-                    aux.room = room;
-                    aux.garage = garage;
-                    aux.bath = bath;
-                    aux.floorArea = floorArea;
-                    aux.landArea = landArea;
-                    aux.rates = rates;
-                    aux.description = description;
-                    aux.telephone = telephone;
-                    aux.email = email;
+                do {
+                    if (aux.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
+                        aux.propertyPrimaryKey = newPropertyPrimaryKey;
+                        aux.propertyType = propertyType;
+                        aux.addressNum = addressNum;
+                        aux.addressStreet = addressStreet;
+                        aux.addressCity = addressCity;
+                        aux.addressCode = addressCode;
+                        aux.value = value;
+                        aux.constructionStatus = constructionStatus;
+                        aux.useOfProperty = useOfProperty;
+                        aux.room = room;
+                        aux.garage = garage;
+                        aux.bath = bath;
+                        aux.floorArea = floorArea;
+                        aux.landArea = landArea;
+                        aux.rates = rates;
+                        aux.description = description;
+                        aux.telephone = telephone;
+                        aux.email = email;
 
-                    updated = true;
-                }
-                aux = aux.nextNode;
+                        updated = true;
+                    }
+                    aux = aux.nextNode;
 
-            } while (!updated && aux != null);
-            JOptionPane.showMessageDialog(null, "Record updated successfully!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Property number does NOT exist!");
+                } while (!updated && aux != null);
+                JOptionPane.showMessageDialog(null, "Record updated successfully!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Property number does NOT exist!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            //Open menu
+            MainMenu menu = new MainMenu();
+
+            menu.setTitle("Corona Main Menu");
+            menu.setOpacity((float) 0.9);
+            menu.setBackground(new Color(0, 0, 0, 0));
+            menu.setIconImage(Toolkit.getDefaultToolkit().
+                    getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+            menu.setLocationRelativeTo(null);
+            menu.setVisible(true);
+
+        } catch (Exception e) {
+            //Open menu
+            MainMenu menu = new MainMenu();
+
+            menu.setTitle("Corona Main Menu");
+            menu.setOpacity((float) 0.9);
+            menu.setBackground(new Color(0, 0, 0, 0));
+            menu.setIconImage(Toolkit.getDefaultToolkit().
+                    getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+            menu.setLocationRelativeTo(null);
+            menu.setVisible(true);
         }
-//        Menu aMenu = new Menu();
-//        aMenu.setLocationRelativeTo(null);
-//        aMenu.setVisible(true);
 
         return updated;
     }

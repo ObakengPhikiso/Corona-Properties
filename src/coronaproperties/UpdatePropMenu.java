@@ -15,11 +15,11 @@ import javax.swing.JOptionPane;
  *
  * @author Melvin K
  */
-public class RecordProp extends javax.swing.JFrame {
+public class UpdatePropMenu extends javax.swing.JFrame {
     /**
-     * Creates new form RecordProp
+     * Creates new form UpdatePropMenu
      */
-    public RecordProp() {
+    public UpdatePropMenu() {
         initComponents();
     }
 
@@ -92,7 +92,7 @@ public class RecordProp extends javax.swing.JFrame {
         lblHeading.setText("Corona Properties");
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 21)); // NOI18N
-        lblTitle.setText("Add New Property");
+        lblTitle.setText("Update Property");
 
         lblpropertyPrimaryKey.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         lblpropertyPrimaryKey.setText("Property Primary Key");
@@ -244,11 +244,6 @@ public class RecordProp extends javax.swing.JFrame {
 
         jComboBoxuseOfProperty.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jComboBoxuseOfProperty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rented", "Idle", "Dr Shaun's Home" }));
-        jComboBoxuseOfProperty.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxuseOfPropertyActionPerformed(evt);
-            }
-        });
 
         jComboBoxpropertyType.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jComboBoxpropertyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "House", "Flat", "Business" }));
@@ -274,7 +269,7 @@ public class RecordProp extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(395, Short.MAX_VALUE)
                 .addComponent(lblHeading)
                 .addGap(387, 387, 387))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -485,29 +480,53 @@ public class RecordProp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        int option = JOptionPane.showConfirmDialog(null, "Do you really want to cancel?", "Are you sure", JOptionPane.YES_NO_OPTION);
-        /*
-         * 0 = yes
-         * 1 = no
-         */
-        if (option == 0) {
-            this.dispose();
-
-            //Back to main menu
-            MainMenu menu = new MainMenu();
-
-            menu.setTitle("Corona Main Menu");
-            menu.setOpacity((float) 0.9);
-            menu.setBackground(new Color(0, 0, 0, 0));
-            menu.setIconImage(Toolkit.getDefaultToolkit().
-                    getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
-            menu.setLocationRelativeTo(null);
-            menu.setVisible(true);
-
-            System.gc();
+    private void txttelephoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelephoneKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
         }
-    }//GEN-LAST:event_btnCancelActionPerformed
+    }//GEN-LAST:event_txttelephoneKeyTyped
+
+    private void txtlandAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtlandAreaKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtlandAreaKeyTyped
+
+    private void txtfloorAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfloorAreaKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtfloorAreaKeyTyped
+
+    private void txtvalueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalueKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtvalueKeyTyped
+
+    private void txtratesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtratesKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtratesKeyTyped
+
+    private void jSpinnergarageStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnergarageStateChanged
+        if ((int) jSpinnergarage.getValue() < 0) {
+            jSpinnergarage.setValue(0);
+        }
+    }//GEN-LAST:event_jSpinnergarageStateChanged
+
+    private void jSpinnerroomStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerroomStateChanged
+        if ((int) jSpinnerroom.getValue() < 0) {
+            jSpinnerroom.setValue(0);
+        }
+    }//GEN-LAST:event_jSpinnerroomStateChanged
+
+    private void jSpinnerbathStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerbathStateChanged
+        if ((int) jSpinnerbath.getValue() < 0) {
+            jSpinnerbath.setValue(0);
+        }
+    }//GEN-LAST:event_jSpinnerbathStateChanged
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
 
@@ -540,22 +559,22 @@ public class RecordProp extends javax.swing.JFrame {
 
                 //Validate email
                 if (isEmail(email)) {
-                    CreateProp aCreateProp = new CreateProp(propertyPrimaryKey, propertyType, addressNum, addressStreet, addressCity, addressCode, value, constructionStatus, useOfProperty, room, garage, bath, floorArea, landArea, rates, description, telephone, email);
+//                    UpdateProp aUpdateProp = new UpdateProp(propertyPrimaryKey, propertyType, addressNum, addressStreet, addressCity, addressCode, value, constructionStatus, useOfProperty, room, garage, bath, floorArea, landArea, rates, description, telephone, email);
 
-                    this.dispose();
-
-                    //Back to main menu
-                    MainMenu menu = new MainMenu();
-
-                    menu.setTitle("Corona Main Menu");
-                    menu.setOpacity((float) 0.9);
-                    menu.setBackground(new Color(0, 0, 0, 0));
-                    menu.setIconImage(Toolkit.getDefaultToolkit().
-                            getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
-                    menu.setLocationRelativeTo(null);
-                    menu.setVisible(true);
-
-                    System.gc();
+//                    this.dispose();
+//
+//                    //Back to main menu
+//                    MainMenu menu = new MainMenu();
+//
+//                    menu.setTitle("Corona Main Menu");
+//                    menu.setOpacity((float) 0.9);
+//                    menu.setBackground(new Color(0, 0, 0, 0));
+//                    menu.setIconImage(Toolkit.getDefaultToolkit().
+//                            getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+//                    menu.setLocationRelativeTo(null);
+//                    menu.setVisible(true);
+//
+//                    System.gc();
                 } else {
                     JOptionPane.showMessageDialog(null, "Email does NOT meet minimum requirements!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -574,67 +593,29 @@ public class RecordProp extends javax.swing.JFrame {
         return matcher.find();
     }
 
-    private void txtfloorAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfloorAreaKeyTyped
-        if (Character.isAlphabetic(evt.getKeyChar())) {
-            evt.consume();
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        int option = JOptionPane.showConfirmDialog(null, "Do you really want to cancel?", "Are you sure", JOptionPane.YES_NO_OPTION);
+        /*
+         * 0 = yes
+         * 1 = no
+         */
+        if (option == 0) {
+            this.dispose();
+
+            //Back to main menu
+            MainMenu menu = new MainMenu();
+
+            menu.setTitle("Corona Main Menu");
+            menu.setOpacity((float) 0.9);
+            menu.setBackground(new Color(0, 0, 0, 0));
+            menu.setIconImage(Toolkit.getDefaultToolkit().
+                    getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+            menu.setLocationRelativeTo(null);
+            menu.setVisible(true);
+
+            System.gc();
         }
-    }//GEN-LAST:event_txtfloorAreaKeyTyped
-
-    private void txtlandAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtlandAreaKeyTyped
-        if (Character.isAlphabetic(evt.getKeyChar())) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtlandAreaKeyTyped
-
-    private void txtvalueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalueKeyTyped
-        if (Character.isAlphabetic(evt.getKeyChar())) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtvalueKeyTyped
-
-    private void txtratesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtratesKeyTyped
-        if (Character.isAlphabetic(evt.getKeyChar())) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtratesKeyTyped
-
-    private void txttelephoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelephoneKeyTyped
-        if (Character.isAlphabetic(evt.getKeyChar())) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txttelephoneKeyTyped
-
-    private void jComboBoxuseOfPropertyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxuseOfPropertyActionPerformed
-        if (jComboBoxuseOfProperty.getSelectedItem().equals("Dr Shaun's Home")) {
-            txtemail.setText("shaun@eg.com");
-            txttelephone.setText("0123456789");
-
-            txtemail.setEditable(false);
-            txttelephone.setEditable(false);
-        } else {
-            txtemail.setEditable(true);
-            txttelephone.setEditable(true);
-        }
-
-    }//GEN-LAST:event_jComboBoxuseOfPropertyActionPerformed
-
-    private void jSpinnerroomStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerroomStateChanged
-        if ((int) jSpinnerroom.getValue() < 0) {
-            jSpinnerroom.setValue(0);
-        }
-    }//GEN-LAST:event_jSpinnerroomStateChanged
-
-    private void jSpinnergarageStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnergarageStateChanged
-        if ((int) jSpinnergarage.getValue() < 0) {
-            jSpinnergarage.setValue(0);
-        }
-    }//GEN-LAST:event_jSpinnergarageStateChanged
-
-    private void jSpinnerbathStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerbathStateChanged
-        if ((int) jSpinnerbath.getValue() < 0) {
-            jSpinnerbath.setValue(0);
-        }
-    }//GEN-LAST:event_jSpinnerbathStateChanged
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -658,13 +639,13 @@ public class RecordProp extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RecordProp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdatePropMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RecordProp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdatePropMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RecordProp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdatePropMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RecordProp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdatePropMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -673,7 +654,7 @@ public class RecordProp extends javax.swing.JFrame {
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RecordProp().setVisible(true);
+                new UpdatePropMenu().setVisible(true);
             }
 
         });

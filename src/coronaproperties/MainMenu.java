@@ -57,6 +57,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         btnUpdate.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnUpdate.setText("Update Property");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnDelete.setText("Delete Property");
@@ -136,7 +141,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         this.dispose();
 
-        RecordProp aRecordProp = new RecordProp();
+        CreatePropMenu aRecordProp = new CreatePropMenu();
         aRecordProp.setTitle("Add New Property");
         aRecordProp.setOpacity((float) 0.9);
         aRecordProp.setBackground(new Color(0, 0, 0, 0));
@@ -163,6 +168,12 @@ public class MainMenu extends javax.swing.JFrame {
         DeleteProp aDeleteProp = new DeleteProp();
         System.gc();
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        this.dispose();
+        UpdateProp aUpdateProp = new UpdateProp();
+        System.gc();
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments

@@ -45,9 +45,19 @@ public class ComparativeViewsMenu extends javax.swing.JFrame {
 
         btnCompareByCity.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCompareByCity.setText("Compare By City");
+        btnCompareByCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompareByCityActionPerformed(evt);
+            }
+        });
 
         btnCompareByType.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCompareByType.setText("Compare By Type");
+        btnCompareByType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompareByTypeActionPerformed(evt);
+            }
+        });
 
         btnCancel.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCancel.setText("Cancel");
@@ -62,6 +72,11 @@ public class ComparativeViewsMenu extends javax.swing.JFrame {
 
         btnCompareByUse.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCompareByUse.setText("Compare By Use");
+        btnCompareByUse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompareByUseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,6 +155,20 @@ public class ComparativeViewsMenu extends javax.swing.JFrame {
             System.gc();
         }
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnCompareByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompareByCityActionPerformed
+        String addressCity1 = JOptionPane.showInputDialog("Enter city (Eg: Durban, Kimberley): ");
+        String addressCity2 = JOptionPane.showInputDialog("Enter another city (Eg: Durban, Kimberley): ");
+        CompViewByCity aCompViewByCity = new CompViewByCity(addressCity1, addressCity2);
+    }//GEN-LAST:event_btnCompareByCityActionPerformed
+
+    private void btnCompareByTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompareByTypeActionPerformed
+
+    }//GEN-LAST:event_btnCompareByTypeActionPerformed
+
+    private void btnCompareByUseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompareByUseActionPerformed
+
+    }//GEN-LAST:event_btnCompareByUseActionPerformed
 
     /**
      * @param args the command line arguments

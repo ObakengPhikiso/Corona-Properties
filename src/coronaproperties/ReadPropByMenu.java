@@ -178,18 +178,30 @@ public class ReadPropByMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewAllActionPerformed
 
     private void btnViewByStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewByStatusActionPerformed
-        String constructionStatus = JOptionPane.showInputDialog("Enter construction status(Completed or Not Complete): ");
-        ReadPropByStatus aReadPropByStatus = new ReadPropByStatus(constructionStatus);
+        try {
+            String constructionStatus = JOptionPane.showInputDialog("Enter construction status(Completed or Not Complete): ");
+            ReadPropByStatus aReadPropByStatus = new ReadPropByStatus(constructionStatus);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnViewByStatusActionPerformed
 
     private void btnViewByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewByCityActionPerformed
-        String addressCity = JOptionPane.showInputDialog("Enter city (Eg: Durban, Kimberley): ");
-        ReadPropByCity aReadPropByCity = new ReadPropByCity(addressCity);
+        try {
+            String addressCity = JOptionPane.showInputDialog("Enter city (Eg: Durban, Kimberley): ");
+            ReadPropByCity aReadPropByCity = new ReadPropByCity(addressCity);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnViewByCityActionPerformed
 
     private void btnViewBySearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBySearchActionPerformed
-        String searchString = JOptionPane.showInputDialog("What are you looking for? (Eg: City, Completed, Address, Value, Use, Rates, etc): ");
-        ReadPropBySearch aReadPropBySearch = new ReadPropBySearch(searchString);
+        try {
+            String searchString = JOptionPane.showInputDialog("What are you looking for? (Eg: City, Completed, Address, Value, Use, Rates, etc): ");
+            ReadPropBySearch aReadPropBySearch = new ReadPropBySearch(searchString);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnViewBySearchActionPerformed
 
     /**

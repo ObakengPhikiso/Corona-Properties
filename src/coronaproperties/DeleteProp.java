@@ -126,32 +126,36 @@ public class DeleteProp {
         aux = head;
         Property aux2;
 
-        String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to delete a property:  ");
+        try {
+            String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to delete a property:  ");
 
-        if (checkBefore(propertyPrimaryKey)) {
+            if (checkBefore(propertyPrimaryKey)) {
 
-            aux = head;
+                aux = head;
 
-            do {
-                if (head.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
-                    head = head.nextNode;
-                    aux2 = head;
+                do {
+                    if (head.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
+                        head = head.nextNode;
+                        aux2 = head;
 
-                    deleted = true;
-                } else if (aux.nextNode != null) {
-                    if ((aux.nextNode.propertyPrimaryKey).compareTo(propertyPrimaryKey) == 0) {
-                        aux2 = aux.nextNode;
-                        aux.nextNode = aux2.nextNode;
                         deleted = true;
+                    } else if (aux.nextNode != null) {
+                        if ((aux.nextNode.propertyPrimaryKey).compareTo(propertyPrimaryKey) == 0) {
+                            aux2 = aux.nextNode;
+                            aux.nextNode = aux2.nextNode;
+                            deleted = true;
+                        }
                     }
-                }
-                aux = aux.nextNode;
-            } while (!deleted && aux != null);
-            aux2 = null;
-            System.gc();
-            JOptionPane.showMessageDialog(null, "Record deleted successfully!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Property number does NOT exist!", "Error", JOptionPane.ERROR_MESSAGE);
+                    aux = aux.nextNode;
+                } while (!deleted && aux != null);
+                aux2 = null;
+                System.gc();
+                JOptionPane.showMessageDialog(null, "Record deleted successfully!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Property number does NOT exist!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
         return deleted;

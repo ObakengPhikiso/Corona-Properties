@@ -157,21 +157,33 @@ public class ComparativeViewsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnCompareByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompareByCityActionPerformed
-        String addressCity1 = JOptionPane.showInputDialog("Enter city (Eg: Durban, Kimberley): ");
-        String addressCity2 = JOptionPane.showInputDialog("Enter another city (Eg: Durban, Kimberley): ");
-        CompViewByCity aCompViewByCity = new CompViewByCity(addressCity1, addressCity2);
+        try {
+            String addressCity1 = JOptionPane.showInputDialog("Enter city (Eg: Durban, Kimberley): ");
+            String addressCity2 = JOptionPane.showInputDialog("Enter another city (Eg: Durban, Kimberley): ");
+            CompViewByCity aCompViewByCity = new CompViewByCity(addressCity1, addressCity2);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnCompareByCityActionPerformed
 
     private void btnCompareByTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompareByTypeActionPerformed
-        String propertyType1 = JOptionPane.showInputDialog("Enter property type (Eg: House, Flat, Business): ");
-        String propertyType2 = JOptionPane.showInputDialog("Enter another property type (Eg: House, Flat, Business): ");
-        CompViewByType aCompViewByType = new CompViewByType(propertyType1, propertyType2);
+        try {
+            String propertyType1 = JOptionPane.showInputDialog("Enter property type (Eg: House, Flat, Business): ");
+            String propertyType2 = JOptionPane.showInputDialog("Enter another property type (Eg: House, Flat, Business): ");
+            CompViewByType aCompViewByType = new CompViewByType(propertyType1, propertyType2);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnCompareByTypeActionPerformed
 
     private void btnCompareByUseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompareByUseActionPerformed
-        String useOfProperty1 = JOptionPane.showInputDialog("Enter use of property (Eg: House, Flat, Business): ");
-        String useOfProperty2 = JOptionPane.showInputDialog("Enter another use of property (Eg: House, Flat, Business): ");
-        CompViewByUse compViewByUse = new CompViewByUse(useOfProperty1, useOfProperty2);
+        try {
+            String useOfProperty1 = JOptionPane.showInputDialog("Enter use of property (Eg: House, Flat, Business): ");
+            String useOfProperty2 = JOptionPane.showInputDialog("Enter another use of property (Eg: House, Flat, Business): ");
+            CompViewByUse compViewByUse = new CompViewByUse(useOfProperty1, useOfProperty2);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnCompareByUseActionPerformed
 
     /**

@@ -193,6 +193,7 @@ public class UpdateProp {
             menu.setVisible(true);
 
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
             //Open menu
             MainMenu menu = new MainMenu();
 

@@ -3,6 +3,7 @@ package coronaproperties;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,7 +34,12 @@ public class CompViewByCity {
     private static Property propertyInfo;
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
     CompViewByCity(String addressCity1, String addressCity2) {
-        displayData(addressCity1, addressCity2);
+
+        if (!addressCity1.isEmpty() || !addressCity2.isEmpty()) {
+            displayData(addressCity1, addressCity2);
+        } else {
+            JOptionPane.showMessageDialog(null, "You did not enter anything!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private static void displayData(String addressCity1, String addressCity2) {

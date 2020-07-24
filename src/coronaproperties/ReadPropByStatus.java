@@ -3,6 +3,7 @@ package coronaproperties;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,7 +34,11 @@ public class ReadPropByStatus {
     private static Property propertyInfo;
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
     ReadPropByStatus(String constructionStatus) {
-        displayData(constructionStatus);
+        if (!constructionStatus.isEmpty()) {
+            displayData(constructionStatus);
+        } else {
+            JOptionPane.showMessageDialog(null, "You did not enter anything!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private static void displayData(String constructionStatus) {

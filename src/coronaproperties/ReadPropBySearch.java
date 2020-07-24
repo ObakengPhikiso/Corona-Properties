@@ -3,6 +3,7 @@ package coronaproperties;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +35,12 @@ public class ReadPropBySearch {
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
     ReadPropBySearch(String searchString) {
         displayData(searchString);
+
+        if (!searchString.isEmpty()) {
+            displayData(searchString);
+        } else {
+            JOptionPane.showMessageDialog(null, "You did not enter anything!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private static void displayData(String searchString) {

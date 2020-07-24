@@ -60,6 +60,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         btnDelete.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnDelete.setText("Delete Property");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnExit.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnExit.setText("Exit");
@@ -153,6 +158,11 @@ public class MainMenu extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        DeleteProp aDeleteProp = new DeleteProp();
+        System.gc();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments

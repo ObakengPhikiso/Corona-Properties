@@ -52,7 +52,7 @@ public class DeleteProp {
                 newNode = new Property();
 
                 newNode.propertyPrimaryKey = rec.substring(0, rec.indexOf("#"));
-                remain = remain.substring(remain.indexOf("#") + 1, remain.length());
+                remain = rec.substring(rec.indexOf("#") + 1, rec.length());
 
                 newNode.propertyType = remain.substring(0, remain.indexOf("#"));
                 remain = remain.substring(remain.indexOf("#") + 1, remain.length());
@@ -151,11 +151,8 @@ public class DeleteProp {
             System.gc();
             JOptionPane.showMessageDialog(null, "Record deleted successfully!");
         } else {
-            JOptionPane.showMessageDialog(null, "Property number does NOT exist!");
+            JOptionPane.showMessageDialog(null, "Property number does NOT exist!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-//        Menu aMenu = new Menu();
-//        aMenu.setLocationRelativeTo(null);
-//        aMenu.setVisible(true);
 
         return deleted;
     }

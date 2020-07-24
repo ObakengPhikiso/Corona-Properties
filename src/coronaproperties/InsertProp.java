@@ -51,7 +51,7 @@ public class InsertProp {
                 newNode = new Property();
 
                 newNode.propertyPrimaryKey = rec.substring(0, rec.indexOf("#"));
-                remain = remain.substring(remain.indexOf("#") + 1, remain.length());
+                remain = rec.substring(rec.indexOf("#") + 1, rec.length());
 
                 newNode.propertyType = remain.substring(0, remain.indexOf("#"));
                 remain = remain.substring(remain.indexOf("#") + 1, remain.length());

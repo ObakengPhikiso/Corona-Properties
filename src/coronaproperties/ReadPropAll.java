@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
  *
  * @author Melvin K
  */
-public class ReadProp {
+public class ReadPropAll {
     private static class Property {
         //fields
         private String propertyPrimaryKey;
@@ -32,7 +32,7 @@ public class ReadProp {
     }
     private static Property propertyInfo;
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
-    ReadProp() {
+    ReadPropAll() {
         displayData();
     }
 
@@ -104,7 +104,6 @@ public class ReadProp {
                 rec = reader.readLine();
             }
             reader.close();
-            System.out.println("\n\n");
         } catch (Exception e) {
             e.printStackTrace();
         }

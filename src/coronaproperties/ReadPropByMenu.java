@@ -34,15 +34,12 @@ public class ReadPropByMenu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnViewAll = new javax.swing.JButton();
         btnViewByCity = new javax.swing.JButton();
-        btnViewByPriceAsc = new javax.swing.JButton();
-        btnViewByPriceDesc = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         lblHeading = new javax.swing.JLabel();
         btnViewByStatus = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -56,12 +53,11 @@ public class ReadPropByMenu extends javax.swing.JFrame {
 
         btnViewByCity.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnViewByCity.setText("View By City");
-
-        btnViewByPriceAsc.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnViewByPriceAsc.setText("View By Price Ascending");
-
-        btnViewByPriceDesc.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnViewByPriceDesc.setText("View By Price Descending");
+        btnViewByCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewByCityActionPerformed(evt);
+            }
+        });
 
         btnCancel.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCancel.setText("Cancel");
@@ -76,6 +72,11 @@ public class ReadPropByMenu extends javax.swing.JFrame {
 
         btnViewByStatus.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnViewByStatus.setText("View By Status");
+        btnViewByStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewByStatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,38 +89,29 @@ public class ReadPropByMenu extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblHeading)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(btnViewByStatus))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(55, 55, 55)
                                 .addComponent(btnCancel))
                             .addComponent(btnViewAll)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnViewByPriceDesc)
-                            .addComponent(btnViewByPriceAsc)))
+                        .addGap(315, 315, 315)
+                        .addComponent(btnViewByCity))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
-                        .addComponent(btnViewByCity)))
-                .addContainerGap(262, Short.MAX_VALUE))
+                        .addGap(303, 303, 303)
+                        .addComponent(btnViewByStatus)))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(lblHeading)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
                 .addComponent(btnViewAll)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addComponent(btnViewByStatus)
-                .addGap(43, 43, 43)
+                .addGap(87, 87, 87)
                 .addComponent(btnViewByCity)
-                .addGap(50, 50, 50)
-                .addComponent(btnViewByPriceAsc)
-                .addGap(51, 51, 51)
-                .addComponent(btnViewByPriceDesc)
-                .addGap(66, 66, 66)
+                .addGap(99, 99, 99)
                 .addComponent(btnCancel)
                 .addGap(44, 44, 44))
         );
@@ -167,8 +159,18 @@ public class ReadPropByMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        ReadProp aReadProp = new ReadProp();
+        ReadPropAll aReadProp = new ReadPropAll();
     }//GEN-LAST:event_btnViewAllActionPerformed
+
+    private void btnViewByStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewByStatusActionPerformed
+        String constructionStatus = JOptionPane.showInputDialog("Enter construction status(Completed or Not Complete): ");
+        ReadPropByStatus aReadPropByStatus = new ReadPropByStatus(constructionStatus);
+    }//GEN-LAST:event_btnViewByStatusActionPerformed
+
+    private void btnViewByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewByCityActionPerformed
+        String addressCity = JOptionPane.showInputDialog("Enter city (Eg: Durban, Kimberley): ");
+        ReadPropByCity aReadPropByCity = new ReadPropByCity(addressCity);
+    }//GEN-LAST:event_btnViewByCityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,8 +219,6 @@ public class ReadPropByMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnViewAll;
     private javax.swing.JButton btnViewByCity;
-    private javax.swing.JButton btnViewByPriceAsc;
-    private javax.swing.JButton btnViewByPriceDesc;
     private javax.swing.JButton btnViewByStatus;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblHeading;

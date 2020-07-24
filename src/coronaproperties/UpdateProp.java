@@ -128,7 +128,7 @@ public class UpdateProp {
         try {
             String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to update a property: ");
 
-            if (checkBeforeInsert(propertyPrimaryKey)) {
+            if (checkBefore(propertyPrimaryKey)) {
 
                 String newPropertyPrimaryKey = JOptionPane.showInputDialog("Enter new property primary key: ");
 
@@ -208,11 +208,11 @@ public class UpdateProp {
         return updated;
     }
 
-    private static boolean checkBeforeInsert(String propertyPrimaryKey) {
+    private static boolean checkBefore(String propertyPrimaryKey) {
         boolean exists = false;
         aux = head;
         do {
-            if (aux.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
+            if (propertyPrimaryKey.compareTo(aux.propertyPrimaryKey) == 0) {
                 exists = true;
             }
             aux = aux.nextNode;

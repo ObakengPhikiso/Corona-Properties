@@ -128,7 +128,7 @@ public class DeleteProp {
 
         String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to delete a property:  ");
 
-        if (checkBeforeInsert(propertyPrimaryKey)) {
+        if (checkBefore(propertyPrimaryKey)) {
 
             aux = head;
 
@@ -157,11 +157,11 @@ public class DeleteProp {
         return deleted;
     }
 
-    private static boolean checkBeforeInsert(String propertyPrimaryKey) {
+    private static boolean checkBefore(String propertyPrimaryKey) {
         boolean exists = false;
         aux = head;
         do {
-            if (aux.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
+            if (propertyPrimaryKey.compareTo(aux.propertyPrimaryKey) == 0) {
                 exists = true;
             }
             aux = aux.nextNode;

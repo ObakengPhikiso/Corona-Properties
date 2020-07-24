@@ -128,7 +128,7 @@ public class InsertProp {
         newNode = new Property();
         newNode.propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key: ");
 
-        if (!checkBeforeInsert(newNode.propertyPrimaryKey)) {
+        if (!checkBefore(newNode.propertyPrimaryKey)) {
             aux = head;
 
             newNode.propertyPrimaryKey = JOptionPane.showInputDialog("Enter new property primary key: ");
@@ -176,11 +176,11 @@ public class InsertProp {
         return inserted;
     }
 
-    private static boolean checkBeforeInsert(String propertyPrimaryKey) {
+    private static boolean checkBefore(String propertyPrimaryKey) {
         boolean exists = false;
         aux = head;
         do {
-            if (aux.propertyPrimaryKey.compareTo(propertyPrimaryKey) == 0) {
+            if (propertyPrimaryKey.compareTo(aux.propertyPrimaryKey) == 0) {
                 exists = true;
             }
             aux = aux.nextNode;

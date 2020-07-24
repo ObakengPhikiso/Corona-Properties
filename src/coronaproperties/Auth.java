@@ -83,7 +83,7 @@ public class Auth {
         //Open menu
         MainMenu menu = new MainMenu();
 
-        menu.setTitle("Corona Main Menu");
+        menu.setTitle("Corona Properties Main Menu");
         menu.setOpacity((float) 0.9);
         menu.setBackground(new Color(0, 0, 0, 0));
         menu.setIconImage(Toolkit.getDefaultToolkit().

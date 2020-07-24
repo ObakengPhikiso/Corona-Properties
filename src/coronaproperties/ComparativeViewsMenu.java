@@ -13,11 +13,11 @@ import javax.swing.JOptionPane;
  *
  * @author Melvin K
  */
-public class ReadPropByMenu extends javax.swing.JFrame {
+public class ComparativeViewsMenu extends javax.swing.JFrame {
     /**
      * Creates new form ReadPropByMenu
      */
-    public ReadPropByMenu() {
+    public ComparativeViewsMenu() {
         initComponents();
     }
 
@@ -32,32 +32,22 @@ public class ReadPropByMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnViewAll = new javax.swing.JButton();
-        btnViewByCity = new javax.swing.JButton();
+        btnCompareByCity = new javax.swing.JButton();
+        btnCompareByType = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         lblHeading = new javax.swing.JLabel();
-        btnViewByStatus = new javax.swing.JButton();
+        btnCompareByUse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        btnViewAll.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnViewAll.setText("View All Property");
-        btnViewAll.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewAllActionPerformed(evt);
-            }
-        });
+        btnCompareByCity.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnCompareByCity.setText("Compare By City");
 
-        btnViewByCity.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnViewByCity.setText("View By City");
-        btnViewByCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewByCityActionPerformed(evt);
-            }
-        });
+        btnCompareByType.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnCompareByType.setText("Compare By Type");
 
         btnCancel.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCancel.setText("Cancel");
@@ -68,15 +58,10 @@ public class ReadPropByMenu extends javax.swing.JFrame {
         });
 
         lblHeading.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
-        lblHeading.setText("Corona View By Menu");
+        lblHeading.setText("Corona Comparative View");
 
-        btnViewByStatus.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnViewByStatus.setText("View By Status");
-        btnViewByStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewByStatusActionPerformed(evt);
-            }
-        });
+        btnCompareByUse.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnCompareByUse.setText("Compare By Use");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,35 +70,31 @@ public class ReadPropByMenu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(293, 293, 293)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(btnCancel))
-                            .addComponent(btnViewAll)))
+                        .addGap(336, 336, 336)
+                        .addComponent(btnCancel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(315, 315, 315)
-                        .addComponent(btnViewByCity))
+                        .addGap(242, 242, 242)
+                        .addComponent(lblHeading))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
-                        .addComponent(btnViewByStatus))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(268, 268, 268)
-                        .addComponent(lblHeading)))
-                .addContainerGap(271, Short.MAX_VALUE))
+                        .addGap(282, 282, 282)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCompareByType)
+                            .addComponent(btnCompareByCity)
+                            .addComponent(btnCompareByUse))))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(20, 20, 20)
                 .addComponent(lblHeading)
-                .addGap(63, 63, 63)
-                .addComponent(btnViewAll)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addComponent(btnViewByStatus)
-                .addGap(87, 87, 87)
-                .addComponent(btnViewByCity)
+                .addGap(70, 70, 70)
+                .addComponent(btnCompareByCity)
+                .addGap(108, 108, 108)
+                .addComponent(btnCompareByType)
                 .addGap(99, 99, 99)
+                .addComponent(btnCompareByUse)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(btnCancel)
                 .addGap(44, 44, 44))
         );
@@ -160,20 +141,6 @@ public class ReadPropByMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        ReadPropAll aReadProp = new ReadPropAll();
-    }//GEN-LAST:event_btnViewAllActionPerformed
-
-    private void btnViewByStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewByStatusActionPerformed
-        String constructionStatus = JOptionPane.showInputDialog("Enter construction status(Completed or Not Complete): ");
-        ReadPropByStatus aReadPropByStatus = new ReadPropByStatus(constructionStatus);
-    }//GEN-LAST:event_btnViewByStatusActionPerformed
-
-    private void btnViewByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewByCityActionPerformed
-        String addressCity = JOptionPane.showInputDialog("Enter city (Eg: Durban, Kimberley): ");
-        ReadPropByCity aReadPropByCity = new ReadPropByCity(addressCity);
-    }//GEN-LAST:event_btnViewByCityActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -196,14 +163,15 @@ public class ReadPropByMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReadPropByMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComparativeViewsMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReadPropByMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComparativeViewsMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReadPropByMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComparativeViewsMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReadPropByMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ComparativeViewsMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /*
@@ -211,7 +179,7 @@ public class ReadPropByMenu extends javax.swing.JFrame {
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReadPropByMenu().setVisible(true);
+                new ComparativeViewsMenu().setVisible(true);
             }
 
         });
@@ -219,9 +187,9 @@ public class ReadPropByMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnViewAll;
-    private javax.swing.JButton btnViewByCity;
-    private javax.swing.JButton btnViewByStatus;
+    private javax.swing.JButton btnCompareByCity;
+    private javax.swing.JButton btnCompareByType;
+    private javax.swing.JButton btnCompareByUse;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblHeading;
     // End of variables declaration//GEN-END:variables

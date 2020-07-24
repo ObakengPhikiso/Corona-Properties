@@ -38,6 +38,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         lblHeading = new javax.swing.JLabel();
+        btnComparativeViews = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -85,40 +86,58 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         lblHeading.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
-        lblHeading.setText("Corona Properties");
+        lblHeading.setText("Corona Properties Main Menu");
+
+        btnComparativeViews.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnComparativeViews.setText("Comparative Views");
+        btnComparativeViews.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComparativeViewsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(293, 293, 293)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHeading)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(293, 293, 293)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnDelete)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(btnExit))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(281, 281, 281)
+                        .addComponent(btnComparativeViews))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(312, 312, 312)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnDisplay)
-                            .addComponent(btnAdd)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(btnExit)))
-                .addContainerGap(289, Short.MAX_VALUE))
+                            .addComponent(btnAdd)
+                            .addComponent(btnDisplay))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 227, Short.MAX_VALUE)
+                .addComponent(lblHeading)
+                .addGap(219, 219, 219))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(29, 29, 29)
                 .addComponent(lblHeading)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(btnAdd)
-                .addGap(67, 67, 67)
+                .addGap(40, 40, 40)
                 .addComponent(btnDisplay)
-                .addGap(77, 77, 77)
+                .addGap(45, 45, 45)
+                .addComponent(btnComparativeViews)
+                .addGap(45, 45, 45)
                 .addComponent(btnUpdate)
-                .addGap(73, 73, 73)
+                .addGap(37, 37, 37)
                 .addComponent(btnDelete)
                 .addGap(65, 65, 65)
                 .addComponent(btnExit)
@@ -197,6 +216,23 @@ public class MainMenu extends javax.swing.JFrame {
         System.gc();
     }//GEN-LAST:event_btnDisplayActionPerformed
 
+    private void btnComparativeViewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComparativeViewsActionPerformed
+        this.dispose();
+
+        //Open ComparativeViewsMenu
+        ComparativeViewsMenu aComparativeViewsMenu = new ComparativeViewsMenu();
+
+        aComparativeViewsMenu.setTitle("Corona Comparative View");
+        aComparativeViewsMenu.setOpacity((float) 0.9);
+        aComparativeViewsMenu.setBackground(new Color(0, 0, 0, 0));
+        aComparativeViewsMenu.setIconImage(Toolkit.getDefaultToolkit().
+                getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+        aComparativeViewsMenu.setLocationRelativeTo(null);
+        aComparativeViewsMenu.setVisible(true);
+
+        System.gc();
+    }//GEN-LAST:event_btnComparativeViewsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -243,6 +279,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnComparativeViews;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDisplay;
     private javax.swing.JButton btnExit;

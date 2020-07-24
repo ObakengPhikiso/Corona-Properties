@@ -33,10 +33,8 @@ public class ComputationMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnCompDepreciation = new javax.swing.JButton();
-        btnCompRates = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         lblHeading = new javax.swing.JLabel();
-        btnCompLoan = new javax.swing.JButton();
         btnCompAppreciation = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,9 +50,6 @@ public class ComputationMenu extends javax.swing.JFrame {
             }
         });
 
-        btnCompRates.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnCompRates.setText("Computate Rates");
-
         btnCancel.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -65,9 +60,6 @@ public class ComputationMenu extends javax.swing.JFrame {
 
         lblHeading.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
         lblHeading.setText("Corona Computation Menu");
-
-        btnCompLoan.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        btnCompLoan.setText("Computate Loans");
 
         btnCompAppreciation.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCompAppreciation.setText("Computate Appreciation");
@@ -91,14 +83,9 @@ public class ComputationMenu extends javax.swing.JFrame {
                         .addComponent(lblHeading))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(282, 282, 282)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCompDepreciation)
-                            .addComponent(btnCompAppreciation)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnCompLoan)
-                                    .addComponent(btnCompRates))
-                                .addGap(44, 44, 44)))))
+                            .addComponent(btnCompAppreciation))))
                 .addContainerGap(241, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,15 +93,11 @@ public class ComputationMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(lblHeading)
-                .addGap(70, 70, 70)
+                .addGap(122, 122, 122)
                 .addComponent(btnCompDepreciation)
-                .addGap(59, 59, 59)
+                .addGap(124, 124, 124)
                 .addComponent(btnCompAppreciation)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addComponent(btnCompLoan)
-                .addGap(63, 63, 63)
-                .addComponent(btnCompRates)
-                .addGap(88, 88, 88)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
                 .addComponent(btnCancel)
                 .addGap(44, 44, 44))
         );
@@ -234,8 +217,6 @@ public class ComputationMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCompAppreciation;
     private javax.swing.JButton btnCompDepreciation;
-    private javax.swing.JButton btnCompLoan;
-    private javax.swing.JButton btnCompRates;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblHeading;
     // End of variables declaration//GEN-END:variables

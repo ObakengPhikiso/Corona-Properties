@@ -12,13 +12,13 @@ import java.awt.Toolkit;
  *
  * @author MightyBeatz
  */
-public class LoadingScreen {
-    LoadingScreen() {
+public class InitFunction {
+    InitFunction() {
         splash();
     }
 
     private static void splash() {
-        Splash spl = new Splash();
+        SplashScreen spl = new SplashScreen();
 
         spl.setTitle("Corona Properties");
         spl.setOpacity((float) 0.9);
@@ -35,7 +35,7 @@ public class LoadingScreen {
 
                 if (i == 100) {
 
-                    //Close Splash screen
+                    //Close SplashScreen screen
                     spl.dispose();
                     System.gc();
 

@@ -19,7 +19,7 @@ public class InsertProp {
         private String addressCity;
         private String addressCode;
         private double value;
-        private boolean constructionComplete;
+        private String constructionStatus;
         private String useOfProperty;
         private int room;
         private int garage;
@@ -71,7 +71,7 @@ public class InsertProp {
                 newNode.value = Double.parseDouble(remain.substring(0, remain.indexOf("#")));
                 remain = remain.substring(remain.indexOf("#") + 1, remain.length());
 
-                newNode.constructionComplete = Boolean.parseBoolean(remain.substring(0, remain.indexOf("#")));
+                newNode.constructionStatus = remain.substring(0, remain.indexOf("#"));
                 remain = remain.substring(remain.indexOf("#") + 1, remain.length());
 
                 newNode.useOfProperty = remain.substring(0, remain.indexOf("#"));
@@ -139,7 +139,7 @@ public class InsertProp {
             newNode.addressCity = JOptionPane.showInputDialog("Enter property address city: ");
             newNode.addressCode = JOptionPane.showInputDialog("Enter property address code: ");
             double value = Double.parseDouble(JOptionPane.showInputDialog("Enter property value: "));
-            boolean constructionComplete = Boolean.parseBoolean(JOptionPane.showInputDialog("Enter property construction status: "));
+            String constructionStatus = JOptionPane.showInputDialog("Enter property construction status: ");
             newNode.useOfProperty = JOptionPane.showInputDialog("Enter property use of property: ");
             int room = Integer.parseInt(JOptionPane.showInputDialog("Enter number of room(s) for property: "));
             int garage = Integer.parseInt(JOptionPane.showInputDialog("Enter number of garage(s) for property: "));
@@ -195,7 +195,7 @@ public class InsertProp {
         try {
             FileWriter writter = new FileWriter(f);
             do {
-                indRec = aux.propertyPrimaryKey.concat("#").concat(aux.propertyType).concat("#").concat(aux.addressNum).concat("#").concat(aux.addressStreet).concat("#").concat(aux.addressCity).concat("#").concat(aux.addressCode).concat("#").concat(Double.toString(aux.value).concat("#").concat(Boolean.toString(aux.constructionComplete)).concat("#").concat(aux.useOfProperty).concat("#").concat(Integer.toString(aux.room)).concat("#").concat(Integer.toString(aux.garage)).concat("#").concat(Integer.toString(aux.bath)).concat("#").concat(Double.toString(aux.floorArea)).concat("#").concat(Double.toString(aux.landArea)).concat("#").concat(Double.toString(aux.rates)).concat("#").concat(aux.description).concat("#").concat(aux.telephone).concat("#").concat(aux.email).concat("\n"));
+                indRec = aux.propertyPrimaryKey.concat("#").concat(aux.propertyType).concat("#").concat(aux.addressNum).concat("#").concat(aux.addressStreet).concat("#").concat(aux.addressCity).concat("#").concat(aux.addressCode).concat("#").concat(Double.toString(aux.value).concat("#").concat(aux.constructionStatus).concat("#").concat(aux.useOfProperty).concat("#").concat(Integer.toString(aux.room)).concat("#").concat(Integer.toString(aux.garage)).concat("#").concat(Integer.toString(aux.bath)).concat("#").concat(Double.toString(aux.floorArea)).concat("#").concat(Double.toString(aux.landArea)).concat("#").concat(Double.toString(aux.rates)).concat("#").concat(aux.description).concat("#").concat(aux.telephone).concat("#").concat(aux.email).concat("\n"));
                 writter.write(indRec);
                 aux = aux.nextNode;
             } while (aux != null);

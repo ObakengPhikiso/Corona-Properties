@@ -2,6 +2,7 @@ package coronaproperties;
 
 import java.io.File;
 import java.io.FileWriter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +18,7 @@ public class CreateProp {
         private String addressCity;
         private String addressCode;
         private double value;
-        private boolean constructionComplete;
+        private String constructionStatus;
         private String useOfProperty;
         private int room;
         private int garage;
@@ -30,7 +31,7 @@ public class CreateProp {
         private String email;
     }
     private static Property propertyInfo;
-    CreateProp(String propertyPrimaryKey, String propertyType, String addressNum, String addressStreet, String addressCity, String addressCode, double value, boolean construction, String useOfProperty, int room, int garage, int bath, double floorArea, double landArea, double rates, String description, String telephone, String email) {
+    CreateProp(String propertyPrimaryKey, String propertyType, String addressNum, String addressStreet, String addressCity, String addressCode, double value, String constructionStatus, String useOfProperty, int room, int garage, int bath, double floorArea, double landArea, double rates, String description, String telephone, String email) {
         propertyInfo = new Property();
         propertyInfo.propertyPrimaryKey = propertyPrimaryKey;
         propertyInfo.propertyType = propertyType;
@@ -39,7 +40,7 @@ public class CreateProp {
         propertyInfo.addressCity = addressCity;
         propertyInfo.addressCode = addressCode;
         propertyInfo.value = value;
-        propertyInfo.constructionComplete = construction;
+        propertyInfo.constructionStatus = constructionStatus;
         propertyInfo.useOfProperty = useOfProperty;
         propertyInfo.room = room;
         propertyInfo.garage = garage;
@@ -50,12 +51,20 @@ public class CreateProp {
         propertyInfo.description = description;
         propertyInfo.telephone = telephone;
         propertyInfo.email = email;
-        writeData();
+
+        if (writeData()) {
+            JOptionPane.showMessageDialog(null, "Record added successfully!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error ocurred!");
+        }
     }
 
-    private static void writeData() {
-        String indRec = propertyInfo.propertyPrimaryKey.concat("#").concat(propertyInfo.propertyType).concat("#").concat(propertyInfo.addressNum).concat("#").concat(propertyInfo.addressStreet).concat("#").concat(propertyInfo.addressCity).concat("#").concat(propertyInfo.addressCode).concat("#").concat(Double.toString(propertyInfo.value).concat("#").concat(Boolean.toString(propertyInfo.constructionComplete)).concat("#").concat(propertyInfo.useOfProperty).concat("#").concat(Integer.toString(propertyInfo.room)).concat("#").concat(Integer.toString(propertyInfo.garage)).concat("#").concat(Integer.toString(propertyInfo.bath)).concat("#").concat(Double.toString(propertyInfo.floorArea)).concat("#").concat(Double.toString(propertyInfo.landArea)).concat("#").concat(Double.toString(propertyInfo.rates)).concat("#").concat(propertyInfo.description).concat("#").concat(propertyInfo.telephone).concat("#").concat(propertyInfo.email).concat("\n"));
-        File f = new File("src/CoronaProperties.txt");
+    private static boolean writeData() {
+        boolean written = false;
+
+        String indRec = propertyInfo.propertyPrimaryKey.concat("#").concat(propertyInfo.propertyType).concat("#").concat(propertyInfo.addressNum).concat("#").concat(propertyInfo.addressStreet).concat("#").concat(propertyInfo.addressCity).concat("#").concat(propertyInfo.addressCode).concat("#").concat(Double.toString(propertyInfo.value).concat("#").concat(propertyInfo.constructionStatus).concat("#").concat(propertyInfo.useOfProperty).concat("#").concat(Integer.toString(propertyInfo.room)).concat("#").concat(Integer.toString(propertyInfo.garage)).concat("#").concat(Integer.toString(propertyInfo.bath)).concat("#").concat(Double.toString(propertyInfo.floorArea)).concat("#").concat(Double.toString(propertyInfo.landArea)).concat("#").concat(Double.toString(propertyInfo.rates)).concat("#").concat(propertyInfo.description).concat("#").concat(propertyInfo.telephone).concat("#").concat(propertyInfo.email).concat("\n"));
+
+        File f = new File("/home/username/CoronaProperties.txt");
         try {
             FileWriter writter = null;
             if (f.createNewFile()) {
@@ -66,9 +75,11 @@ public class CreateProp {
                 writter.close();
 
             }
+            written = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return written;
     }
 
 }

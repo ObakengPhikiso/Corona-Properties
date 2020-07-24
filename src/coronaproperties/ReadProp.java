@@ -17,7 +17,7 @@ public class ReadProp {
         private String addressCity;
         private String addressCode;
         private double value;
-        private boolean constructionComplete;
+        private String constructionStatus;
         private String useOfProperty;
         private int room;
         private int garage;
@@ -65,7 +65,7 @@ public class ReadProp {
                 propertyInfo.value = Double.parseDouble(remain.substring(0, remain.indexOf("#")));
                 remain = remain.substring(remain.indexOf("#") + 1, remain.length());
 
-                propertyInfo.constructionComplete = Boolean.parseBoolean(remain.substring(0, remain.indexOf("#")));
+                propertyInfo.constructionStatus = remain.substring(0, remain.indexOf("#"));
                 remain = remain.substring(remain.indexOf("#") + 1, remain.length());
 
                 propertyInfo.useOfProperty = remain.substring(0, remain.indexOf("#"));

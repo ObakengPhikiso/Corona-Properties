@@ -196,13 +196,11 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lbladdress" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="lbladdressNum" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lbladdress" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lbladdressNum" min="-2" max="-2" attributes="0"/>
                               <Component id="txtaddressNum" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -439,6 +437,9 @@
               <Font name="Arial" size="16" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txttelephoneKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtemail">
           <Properties>
@@ -525,6 +526,9 @@
               <Font name="Arial" size="16" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtlandAreaKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtfloorArea">
           <Properties>
@@ -532,6 +536,9 @@
               <Font name="Arial" size="16" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtfloorAreaKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtvalue">
           <Properties>
@@ -539,6 +546,9 @@
               <Font name="Arial" size="16" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtvalueKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbluseOfProperty2">
           <Properties>
@@ -554,6 +564,9 @@
               <Font name="Arial" size="16" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtratesKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblpropertyPrimaryKey2">
           <Properties>
@@ -611,6 +624,9 @@
               <Font name="Arial" size="16" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnergarageStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="jSpinnerroom">
           <Properties>
@@ -618,6 +634,9 @@
               <Font name="Arial" size="16" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerroomStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="jSpinnerbath">
           <Properties>
@@ -625,6 +644,9 @@
               <Font name="Arial" size="16" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerbathStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxconstructionStatus">
           <Properties>
@@ -655,6 +677,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxuseOfPropertyActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>

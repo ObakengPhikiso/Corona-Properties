@@ -7,6 +7,8 @@ package coronaproperties;
 
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -133,6 +135,11 @@ public class RecordProp extends javax.swing.JFrame {
         txtaddressCode.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
 
         txttelephone.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txttelephone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txttelephoneKeyTyped(evt);
+            }
+        });
 
         txtemail.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
 
@@ -164,15 +171,35 @@ public class RecordProp extends javax.swing.JFrame {
         lbluseOfProperty1.setText("Value");
 
         txtlandArea.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtlandArea.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtlandAreaKeyTyped(evt);
+            }
+        });
 
         txtfloorArea.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtfloorArea.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtfloorAreaKeyTyped(evt);
+            }
+        });
 
         txtvalue.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtvalue.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtvalueKeyTyped(evt);
+            }
+        });
 
         lbluseOfProperty2.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         lbluseOfProperty2.setText("Rates");
 
         txtrates.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtrates.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtratesKeyTyped(evt);
+            }
+        });
 
         lblpropertyPrimaryKey2.setFont(new java.awt.Font("Arial", 1, 22)); // NOI18N
         lblpropertyPrimaryKey2.setText("Info");
@@ -192,16 +219,36 @@ public class RecordProp extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextAreadescription);
 
         jSpinnergarage.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jSpinnergarage.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnergarageStateChanged(evt);
+            }
+        });
 
         jSpinnerroom.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jSpinnerroom.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerroomStateChanged(evt);
+            }
+        });
 
         jSpinnerbath.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jSpinnerbath.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerbathStateChanged(evt);
+            }
+        });
 
         jComboBoxconstructionStatus.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jComboBoxconstructionStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Completed", "Not Complete" }));
 
         jComboBoxuseOfProperty.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jComboBoxuseOfProperty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rented", "Idle", "Dr Shaun's Home" }));
+        jComboBoxuseOfProperty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxuseOfPropertyActionPerformed(evt);
+            }
+        });
 
         jComboBoxpropertyType.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jComboBoxpropertyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "House", "Flat", "Business" }));
@@ -338,12 +385,11 @@ public class RecordProp extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lbluseOfProperty3)
                                     .addComponent(jComboBoxuseOfProperty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lbladdress)
-                                .addGap(26, 26, 26)
-                                .addComponent(lbladdressNum))
+                        .addGap(18, 18, 18)
+                        .addComponent(lbladdress)
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbladdressNum)
                             .addComponent(txtaddressNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -466,43 +512,129 @@ public class RecordProp extends javax.swing.JFrame {
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
 
         //Capture input into variables
-        String propertyPrimaryKey = txtpropertyPrimaryKey.getText();
-        String propertyType = String.valueOf(jComboBoxpropertyType.getSelectedItem());
-        String addressNum = txtaddressNum.getText();
-        String addressStreet = txtaddressStreet.getText();
-        String addressCity = txtaddressCity.getText();
-        String addressCode = txtaddressCode.getText();
-        double value = Double.parseDouble(txtvalue.getText());
-        String constructionStatus = String.valueOf(jComboBoxconstructionStatus.getSelectedItem());
-        String useOfProperty = String.valueOf(jComboBoxuseOfProperty.getSelectedItem());
-        int room = (int) jSpinnerroom.getValue();
-        int garage = (int) jSpinnergarage.getValue();
-        int bath = (int) jSpinnerbath.getValue();
-        double floorArea = Double.parseDouble(txtfloorArea.getText());
-        double landArea = Double.parseDouble(txtlandArea.getText());
-        double rates = Double.parseDouble(txtrates.getText());
-        String description = jTextAreadescription.getText();
-        String telephone = txttelephone.getText();
-        String email = txtemail.getText();
+        try {
+            boolean captured = false;
 
-        //Send captured inpute to CreateProp class for processing
-        CreateProp aCreateProp = new CreateProp(propertyPrimaryKey, propertyType, addressNum, addressStreet, addressCity, addressCode, value, constructionStatus, useOfProperty, room, garage, bath, floorArea, landArea, rates, description, telephone, email);
+            String propertyPrimaryKey = txtpropertyPrimaryKey.getText();
+            String propertyType = String.valueOf(jComboBoxpropertyType.getSelectedItem());
+            String addressNum = txtaddressNum.getText();
+            String addressStreet = txtaddressStreet.getText();
+            String addressCity = txtaddressCity.getText();
+            String addressCode = txtaddressCode.getText();
+            double value = Double.parseDouble(txtvalue.getText());
+            String constructionStatus = String.valueOf(jComboBoxconstructionStatus.getSelectedItem());
+            String useOfProperty = String.valueOf(jComboBoxuseOfProperty.getSelectedItem());
+            int room = (int) jSpinnerroom.getValue();
+            int garage = (int) jSpinnergarage.getValue();
+            int bath = (int) jSpinnerbath.getValue();
+            double floorArea = Double.parseDouble(txtfloorArea.getText());
+            double landArea = Double.parseDouble(txtlandArea.getText());
+            double rates = Double.parseDouble(txtrates.getText());
+            String description = jTextAreadescription.getText();
+            String telephone = txttelephone.getText();
+            String email = txtemail.getText();
 
-        this.dispose();
+            //Everything captured
+            captured = true;
+            if (captured) {
 
-        //Back to main menu
-        MainMenu menu = new MainMenu();
+                //Validate email
+                if (isEmail(email)) {
+                    CreateProp aCreateProp = new CreateProp(propertyPrimaryKey, propertyType, addressNum, addressStreet, addressCity, addressCode, value, constructionStatus, useOfProperty, room, garage, bath, floorArea, landArea, rates, description, telephone, email);
 
-        menu.setTitle("Corona Main Menu");
-        menu.setOpacity((float) 0.9);
-        menu.setBackground(new Color(0, 0, 0, 0));
-        menu.setIconImage(Toolkit.getDefaultToolkit().
-                getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
-        menu.setLocationRelativeTo(null);
-        menu.setVisible(true);
+                    this.dispose();
 
-        System.gc();
+                    //Back to main menu
+                    MainMenu menu = new MainMenu();
+
+                    menu.setTitle("Corona Main Menu");
+                    menu.setOpacity((float) 0.9);
+                    menu.setBackground(new Color(0, 0, 0, 0));
+                    menu.setIconImage(Toolkit.getDefaultToolkit().
+                            getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+                    menu.setLocationRelativeTo(null);
+                    menu.setVisible(true);
+
+                    System.gc();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Email does NOT meet minimum requirements!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "One or more empty fields",
+                    "Empty field(s)", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnOKActionPerformed
+
+    private static boolean isEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$";
+        Pattern emailPat = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = emailPat.matcher(email);
+        return matcher.find();
+    }
+
+    private void txtfloorAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfloorAreaKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtfloorAreaKeyTyped
+
+    private void txtlandAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtlandAreaKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtlandAreaKeyTyped
+
+    private void txtvalueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalueKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtvalueKeyTyped
+
+    private void txtratesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtratesKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtratesKeyTyped
+
+    private void txttelephoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelephoneKeyTyped
+        if (Character.isAlphabetic(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txttelephoneKeyTyped
+
+    private void jComboBoxuseOfPropertyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxuseOfPropertyActionPerformed
+        if (jComboBoxuseOfProperty.getSelectedItem().equals("Dr Shaun's Home")) {
+            txtemail.setText("shaun@eg.com");
+            txttelephone.setText("0123456789");
+
+            txtemail.setEditable(false);
+            txttelephone.setEditable(false);
+        } else {
+            txtemail.setEditable(true);
+            txttelephone.setEditable(true);
+        }
+
+    }//GEN-LAST:event_jComboBoxuseOfPropertyActionPerformed
+
+    private void jSpinnerroomStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerroomStateChanged
+        if ((int) jSpinnerroom.getValue() < 0) {
+            jSpinnerroom.setValue(0);
+        }
+    }//GEN-LAST:event_jSpinnerroomStateChanged
+
+    private void jSpinnergarageStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnergarageStateChanged
+        if ((int) jSpinnergarage.getValue() < 0) {
+            jSpinnergarage.setValue(0);
+        }
+    }//GEN-LAST:event_jSpinnergarageStateChanged
+
+    private void jSpinnerbathStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerbathStateChanged
+        if ((int) jSpinnerbath.getValue() < 0) {
+            jSpinnerbath.setValue(0);
+        }
+    }//GEN-LAST:event_jSpinnerbathStateChanged
 
     /**
      * @param args the command line arguments

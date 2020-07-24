@@ -24,7 +24,7 @@ public class Valid {
             loginScreen.setLocationRelativeTo(null);
             loginScreen.setVisible(true);
 
-            JOptionPane.showMessageDialog(null, "Email or Password does NOT meet minimum requirements!");
+            JOptionPane.showMessageDialog(null, "Email or Password does NOT meet minimum requirements!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -44,7 +44,7 @@ public class Valid {
 //            return false;
 //        }
 //    }
-    public boolean validatePassword(String password) {
+    private static boolean validatePassword(String password) {
         boolean hasNum = false;
         boolean hasCap = false;
         boolean hasLow = false;
@@ -70,7 +70,7 @@ public class Valid {
         return false;
     }
 
-    public static boolean isEmail(String email) {
+    private static boolean isEmail(String email) {
         String emailRegex = "^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$";
         Pattern emailPat = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = emailPat.matcher(email);

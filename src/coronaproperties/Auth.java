@@ -35,7 +35,7 @@ public class Auth {
             loginScreen.setLocationRelativeTo(null);
             loginScreen.setVisible(true);
 
-            JOptionPane.showMessageDialog(null, "Email or Password is incorrect!");
+            JOptionPane.showMessageDialog(null, "Email or Password is incorrect!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

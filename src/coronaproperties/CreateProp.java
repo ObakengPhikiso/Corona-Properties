@@ -55,7 +55,7 @@ public class CreateProp {
         if (writeData()) {
             JOptionPane.showMessageDialog(null, "Record added successfully!");
         } else {
-            JOptionPane.showMessageDialog(null, "Error ocurred!");
+            JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

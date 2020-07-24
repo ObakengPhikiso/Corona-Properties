@@ -111,7 +111,7 @@ public class ComputeAppreBySearch {
                 // Check if searchString is in rec
                 // Case insensitive by making rec and searchString both lower case
                 if (rec.toLowerCase().contains(searchString.toLowerCase())) {
-                    double appreciation = propertyInfo.value * r / 100 * t;
+                    double appreciation = (propertyInfo.value * (r / 100) * t) + propertyInfo.value;
 
                     output += "\n" + propertyInfo.propertyPrimaryKey + "\n" + propertyInfo.propertyType + "\n"
                             + propertyInfo.addressNum + "\n" + propertyInfo.addressStreet + "\n"

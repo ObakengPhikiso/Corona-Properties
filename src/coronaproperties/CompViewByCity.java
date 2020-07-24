@@ -126,14 +126,14 @@ public class CompViewByCity {
                 // Case insensitive search: by making both search string and source string lower
                 // case
                 if (propertyInfo.addressCity.toLowerCase().contains(addressCity2.toLowerCase())) {
-                    output += "\n" + propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t"
-                            + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t"
-                            + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t"
-                            + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t"
-                            + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t"
-                            + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t"
-                            + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t"
-                            + propertyInfo.telephone + "\t" + propertyInfo.email + "\n\n";
+                    output += "\n" + propertyInfo.propertyPrimaryKey + "\n" + propertyInfo.propertyType + "\n"
+                            + propertyInfo.addressNum + "\n" + propertyInfo.addressStreet + "\n"
+                            + propertyInfo.addressCity + "\n" + propertyInfo.addressCode + "\n"
+                            + df.format(propertyInfo.value) + "\n" + propertyInfo.constructionStatus + "\n"
+                            + propertyInfo.useOfProperty + "\n" + propertyInfo.room + "\n" + propertyInfo.garage + "\n"
+                            + propertyInfo.bath + "\n" + propertyInfo.floorArea + "\n" + propertyInfo.landArea + "\n"
+                            + df.format(propertyInfo.rates) + "\n" + propertyInfo.description + "\n"
+                            + propertyInfo.telephone + "\n" + propertyInfo.email + "\n\n";
                 }
                 rec = reader.readLine();
             }

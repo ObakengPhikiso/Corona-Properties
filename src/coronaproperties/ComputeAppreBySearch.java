@@ -33,15 +33,15 @@ public class ComputeAppreBySearch {
     }
     private static Property propertyInfo;
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
-    ComputeAppreBySearch(String searchString) {
-        if (!searchString.isEmpty()) {
-            displayData(searchString);
+    ComputeAppreBySearch(String searchString, String r, String t) {
+        if (!searchString.isEmpty() || !r.isEmpty() || !t.isEmpty()) {
+            displayData(searchString, Double.parseDouble(r), Integer.parseInt(t));
         } else {
             JOptionPane.showMessageDialog(null, "You did not enter anything!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    private static void displayData(String searchString) {
+    private static void displayData(String searchString, double r, int t) {
         BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader("/home/username/CoronaProperties.txt"));
@@ -107,9 +107,9 @@ public class ComputeAppreBySearch {
                 //Check if searchString is in rec
                 //Case insensitive by making rec and searchString both lower case
                 if (rec.toLowerCase().contains(searchString.toLowerCase())) {
-                    double appreciation = propertyInfo.value * 1.07;
+                    double appreciation = propertyInfo.value * r * t;
 
-                    System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\tValue: " + df.format(propertyInfo.value) + "\t" + "After Appreciation of 7% p/a: " + df.format(appreciation) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
+                    System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\tValue: " + df.format(propertyInfo.value) + "\t" + "After Appreciation of " + r + "% for " + t + " year(s): " + df.format(appreciation) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
                 }
 
                 rec = reader.readLine();

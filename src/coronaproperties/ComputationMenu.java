@@ -54,11 +54,6 @@ public class ComputationMenu extends javax.swing.JFrame {
 
         btnCompRates.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCompRates.setText("Computate Rates");
-        btnCompRates.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCompRatesActionPerformed(evt);
-            }
-        });
 
         btnCancel.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCancel.setText("Cancel");
@@ -73,11 +68,6 @@ public class ComputationMenu extends javax.swing.JFrame {
 
         btnCompLoan.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCompLoan.setText("Computate Loans");
-        btnCompLoan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCompLoanActionPerformed(evt);
-            }
-        });
 
         btnCompAppreciation.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnCompAppreciation.setText("Computate Appreciation");
@@ -103,12 +93,12 @@ public class ComputationMenu extends javax.swing.JFrame {
                         .addGap(282, 282, 282)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCompDepreciation)
+                            .addComponent(btnCompAppreciation)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnCompRates)
-                                    .addComponent(btnCompLoan))
-                                .addGap(46, 46, 46))
-                            .addComponent(btnCompAppreciation))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnCompLoan)
+                                    .addComponent(btnCompRates))
+                                .addGap(44, 44, 44)))))
                 .addContainerGap(241, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,11 +110,11 @@ public class ComputationMenu extends javax.swing.JFrame {
                 .addComponent(btnCompDepreciation)
                 .addGap(59, 59, 59)
                 .addComponent(btnCompAppreciation)
-                .addGap(78, 78, 78)
-                .addComponent(btnCompRates)
-                .addGap(63, 63, 63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(btnCompLoan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGap(63, 63, 63)
+                .addComponent(btnCompRates)
+                .addGap(88, 88, 88)
                 .addComponent(btnCancel)
                 .addGap(44, 44, 44))
         );
@@ -174,26 +164,21 @@ public class ComputationMenu extends javax.swing.JFrame {
     private void btnCompDepreciationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompDepreciationActionPerformed
         try {
             String searchString = JOptionPane.showInputDialog("Enter property you want to compute depreciation on: ");
+            String r = JOptionPane.showInputDialog("Enter rate of depreciation: ");
+            String t = JOptionPane.showInputDialog("Enter number of year(s) of depreciation: ");
 
-            ComputeDepBySearch aComputeBySearch = new ComputeDepBySearch(searchString);
+            ComputeDepBySearch aComputeBySearch = new ComputeDepBySearch(searchString, r, t);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCompDepreciationActionPerformed
 
-    private void btnCompRatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompRatesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCompRatesActionPerformed
-
-    private void btnCompLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompLoanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCompLoanActionPerformed
-
     private void btnCompAppreciationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompAppreciationActionPerformed
         try {
             String searchString = JOptionPane.showInputDialog("Enter property you want to compute appreciation on: ");
-
-            ComputeAppreBySearch aComputeAppreBySearch = new ComputeAppreBySearch(searchString);
+            String r = JOptionPane.showInputDialog("Enter rate of appreciation: ");
+            String t = JOptionPane.showInputDialog("Enter number of year(s) of appreciation: ");
+            ComputeAppreBySearch aComputeAppreBySearch = new ComputeAppreBySearch(searchString, r, t);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
         }

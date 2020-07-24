@@ -100,12 +100,14 @@ public class CompViewByCity {
                 propertyInfo.email = remain;
 
                 //First City
-                if (addressCity1.compareToIgnoreCase(propertyInfo.addressCity) == 0) {
+                //Case insensitive search: by making both search string and source string lower case
+                if (propertyInfo.addressCity.toLowerCase().contains(addressCity1.toLowerCase())) {
                     System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t" + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
                 }
 
                 //Second City
-                if (addressCity2.compareToIgnoreCase(propertyInfo.addressCity) == 0) {
+                //Case insensitive search: by making both search string and source string lower case
+                if (propertyInfo.addressCity.toLowerCase().contains(addressCity2.toLowerCase())) {
                     System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t" + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
                 }
 

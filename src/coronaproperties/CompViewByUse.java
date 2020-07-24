@@ -100,12 +100,14 @@ public class CompViewByUse {
                 propertyInfo.email = remain;
 
                 //First use of property
-                if (useOfProperty1.compareToIgnoreCase(propertyInfo.useOfProperty) == 0) {
+                //Case insensitive search: by making both search string and source string lower case
+                if (propertyInfo.useOfProperty.toLowerCase().contains(useOfProperty1.toLowerCase())) {
                     System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t" + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
                 }
 
                 //Second use of property
-                if (useOfProperty2.compareToIgnoreCase(propertyInfo.useOfProperty) == 0) {
+                //Case insensitive search: by making both search string and source string lower case
+                if (propertyInfo.useOfProperty.toLowerCase().contains(useOfProperty2.toLowerCase())) {
                     System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t" + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
                 }
 

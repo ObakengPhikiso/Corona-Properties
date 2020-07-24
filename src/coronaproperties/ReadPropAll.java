@@ -4,13 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.DecimalFormat;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Melvin K
  */
 public class ReadPropAll {
     private static class Property {
-        //fields
+        // fields
         private String propertyPrimaryKey;
         private String propertyType;
         private String addressNum;
@@ -30,8 +32,10 @@ public class ReadPropAll {
         private String telephone;
         private String email;
     }
+
     private static Property propertyInfo;
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
+
     ReadPropAll() {
         displayData();
     }
@@ -42,6 +46,7 @@ public class ReadPropAll {
             reader = new BufferedReader(new FileReader("/home/username/CoronaProperties.txt"));
             String rec = reader.readLine();
             String remain = "";
+            String output = "";
 
             while (rec != null) {
                 propertyInfo = new Property();
@@ -99,11 +104,17 @@ public class ReadPropAll {
 
                 propertyInfo.email = remain;
 
-                System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t" + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
-
+                output += "\n" + propertyInfo.propertyPrimaryKey + "\n" + propertyInfo.propertyType + "\n"
+                        + propertyInfo.addressNum + "\n" + propertyInfo.addressStreet + "\n" + propertyInfo.addressCity
+                        + "\n" + propertyInfo.addressCode + "\n" + df.format(propertyInfo.value) + "\n"
+                        + propertyInfo.constructionStatus + "\n" + propertyInfo.useOfProperty + "\n" + propertyInfo.room
+                        + "\n" + propertyInfo.garage + "\n" + propertyInfo.bath + "\n" + propertyInfo.floorArea + "\n"
+                        + propertyInfo.landArea + "\n" + df.format(propertyInfo.rates) + "\n" + propertyInfo.description
+                        + "\n" + propertyInfo.telephone + "\n" + propertyInfo.email + "\n\n";
                 rec = reader.readLine();
             }
             reader.close();
+            JOptionPane.showMessageDialog(null, output);
         } catch (Exception e) {
             e.printStackTrace();
         }

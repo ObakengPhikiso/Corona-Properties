@@ -12,11 +12,13 @@ import javax.swing.JOptionPane;
  */
 public class Auth {
     private static class Authentication {
-        //fields
+        // fields
         private String emailString;
         private String passString;
     }
+
     private static Authentication authentic;
+
     Auth(String emailString, String passString) {
         getData();
 
@@ -30,8 +32,8 @@ public class Auth {
             loginScreen.setTitle("Login");
             loginScreen.setOpacity((float) 0.9);
             loginScreen.setBackground(new Color(0, 0, 0, 0));
-            loginScreen.setIconImage(Toolkit.getDefaultToolkit().
-                    getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+            loginScreen.setIconImage(Toolkit.getDefaultToolkit()
+                    .getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
             loginScreen.setLocationRelativeTo(null);
             loginScreen.setVisible(true);
 
@@ -72,7 +74,7 @@ public class Auth {
     }
 
     private static void closeLoginScreen() {
-        //Close Login screen
+        // Close Login screen
         Login loginScreen = new Login();
         loginScreen.setVisible(false);
         loginScreen.dispose();
@@ -80,14 +82,14 @@ public class Auth {
     }
 
     private static void openMenu() {
-        //Open menu
+        // Open menu
         MainMenu menu = new MainMenu();
 
         menu.setTitle("Corona Properties Main Menu");
         menu.setOpacity((float) 0.9);
         menu.setBackground(new Color(0, 0, 0, 0));
-        menu.setIconImage(Toolkit.getDefaultToolkit().
-                getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+        menu.setIconImage(Toolkit.getDefaultToolkit()
+                .getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }

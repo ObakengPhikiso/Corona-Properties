@@ -3,6 +3,7 @@ package coronaproperties;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.DecimalFormat;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -11,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class CompViewByCity {
     private static class Property {
-        //fields
+        // fields
         private String propertyPrimaryKey;
         private String propertyType;
         private String addressNum;
@@ -31,8 +32,10 @@ public class CompViewByCity {
         private String telephone;
         private String email;
     }
+
     private static Property propertyInfo;
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
+
     CompViewByCity(String addressCity1, String addressCity2) {
         if (!addressCity1.isEmpty() || !addressCity2.isEmpty()) {
             displayData(addressCity1, addressCity2);
@@ -47,6 +50,7 @@ public class CompViewByCity {
             reader = new BufferedReader(new FileReader("/home/username/CoronaProperties.txt"));
             String rec = reader.readLine();
             String remain = "";
+            String output = "";
 
             while (rec != null) {
                 propertyInfo = new Property();
@@ -104,21 +108,37 @@ public class CompViewByCity {
 
                 propertyInfo.email = remain;
 
-                //First City
-                //Case insensitive search: by making both search string and source string lower case
+                // First City
+                // Case insensitive search: by making both search string and source string lower
+                // case
                 if (propertyInfo.addressCity.toLowerCase().contains(addressCity1.toLowerCase())) {
-                    System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t" + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
+                    output += "\n" + propertyInfo.propertyPrimaryKey + "\n" + propertyInfo.propertyType + "\n"
+                            + propertyInfo.addressNum + "\n" + propertyInfo.addressStreet + "\n"
+                            + propertyInfo.addressCity + "\n" + propertyInfo.addressCode + "\n"
+                            + df.format(propertyInfo.value) + "\n" + propertyInfo.constructionStatus + "\n"
+                            + propertyInfo.useOfProperty + "\n" + propertyInfo.room + "\n" + propertyInfo.garage + "\n"
+                            + propertyInfo.bath + "\n" + propertyInfo.floorArea + "\n" + propertyInfo.landArea + "\n"
+                            + df.format(propertyInfo.rates) + "\n" + propertyInfo.description + "\n"
+                            + propertyInfo.telephone + "\n" + propertyInfo.email + "\n\n";
                 }
 
-                //Second City
-                //Case insensitive search: by making both search string and source string lower case
+                // Second City
+                // Case insensitive search: by making both search string and source string lower
+                // case
                 if (propertyInfo.addressCity.toLowerCase().contains(addressCity2.toLowerCase())) {
-                    System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t" + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
+                    output += "\n" + propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t"
+                            + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t"
+                            + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t"
+                            + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t"
+                            + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t"
+                            + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t"
+                            + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t"
+                            + propertyInfo.telephone + "\t" + propertyInfo.email + "\n\n";
                 }
-
                 rec = reader.readLine();
             }
             reader.close();
+            JOptionPane.showMessageDialog(null, output);
         } catch (Exception e) {
             e.printStackTrace();
         }

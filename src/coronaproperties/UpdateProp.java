@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class UpdateProp {
     private static class Property {
-        //fields
+        // fields
         private String propertyPrimaryKey;
         private String propertyType;
         private String addressNum;
@@ -35,7 +36,9 @@ public class UpdateProp {
         private String email;
         Property nextNode;
     }
+
     private static Property head = null, aux, newNode;
+
     UpdateProp() {
         readDataToQueue();
         if (updateNodeFromQueue()) {
@@ -126,7 +129,8 @@ public class UpdateProp {
         boolean updated = false;
 
         try {
-            String propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key to update a property: ");
+            String propertyPrimaryKey = JOptionPane
+                    .showInputDialog("Enter property primary key to update a property: ");
 
             if (checkBefore(propertyPrimaryKey)) {
 
@@ -179,29 +183,30 @@ public class UpdateProp {
                 } while (!updated && aux != null);
                 JOptionPane.showMessageDialog(null, "Record updated successfully!");
             } else {
-                JOptionPane.showMessageDialog(null, "Property number does NOT exist!", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Property number does NOT exist!", "Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
-            //Open menu
+            // Open menu
             MainMenu menu = new MainMenu();
 
             menu.setTitle("Corona Main Menu");
             menu.setOpacity((float) 0.9);
             menu.setBackground(new Color(0, 0, 0, 0));
-            menu.setIconImage(Toolkit.getDefaultToolkit().
-                    getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+            menu.setIconImage(Toolkit.getDefaultToolkit()
+                    .getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
             menu.setLocationRelativeTo(null);
             menu.setVisible(true);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error ocurred!", "Error", JOptionPane.ERROR_MESSAGE);
-            //Open menu
+            // Open menu
             MainMenu menu = new MainMenu();
 
             menu.setTitle("Corona Main Menu");
             menu.setOpacity((float) 0.9);
             menu.setBackground(new Color(0, 0, 0, 0));
-            menu.setIconImage(Toolkit.getDefaultToolkit().
-                    getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+            menu.setIconImage(Toolkit.getDefaultToolkit()
+                    .getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
             menu.setLocationRelativeTo(null);
             menu.setVisible(true);
         }
@@ -228,7 +233,16 @@ public class UpdateProp {
         try {
             FileWriter writter = new FileWriter(f);
             do {
-                indRec = aux.propertyPrimaryKey.concat("#").concat(aux.propertyType).concat("#").concat(aux.addressNum).concat("#").concat(aux.addressStreet).concat("#").concat(aux.addressCity).concat("#").concat(aux.addressCode).concat("#").concat(Double.toString(aux.value).concat("#").concat(aux.constructionStatus).concat("#").concat(aux.useOfProperty).concat("#").concat(Integer.toString(aux.room)).concat("#").concat(Integer.toString(aux.garage)).concat("#").concat(Integer.toString(aux.bath)).concat("#").concat(Double.toString(aux.floorArea)).concat("#").concat(Double.toString(aux.landArea)).concat("#").concat(Double.toString(aux.rates)).concat("#").concat(aux.description).concat("#").concat(aux.telephone).concat("#").concat(aux.email).concat("\n"));
+                indRec = aux.propertyPrimaryKey.concat("#").concat(aux.propertyType).concat("#").concat(aux.addressNum)
+                        .concat("#").concat(aux.addressStreet).concat("#").concat(aux.addressCity).concat("#")
+                        .concat(aux.addressCode).concat("#")
+                        .concat(Double.toString(aux.value).concat("#").concat(aux.constructionStatus).concat("#")
+                                .concat(aux.useOfProperty).concat("#").concat(Integer.toString(aux.room)).concat("#")
+                                .concat(Integer.toString(aux.garage)).concat("#").concat(Integer.toString(aux.bath))
+                                .concat("#").concat(Double.toString(aux.floorArea)).concat("#")
+                                .concat(Double.toString(aux.landArea)).concat("#").concat(Double.toString(aux.rates))
+                                .concat("#").concat(aux.description).concat("#").concat(aux.telephone).concat("#")
+                                .concat(aux.email).concat("\n"));
                 writter.write(indRec);
 
                 aux = aux.nextNode;

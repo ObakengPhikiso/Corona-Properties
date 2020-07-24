@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -32,7 +33,9 @@ public class InsertProp {
         private String email;
         Property nextNode;
     }
+
     private static Property head = null, aux, newNode;
+
     InsertProp() {
         readDataToQueue();
         if (insertNodeFromQueue()) {
@@ -123,7 +126,8 @@ public class InsertProp {
 
         boolean inserted = false;
 
-        int position = Integer.parseInt(JOptionPane.showInputDialog("What position do you want to insert a new property?: "));
+        int position = Integer
+                .parseInt(JOptionPane.showInputDialog("What position do you want to insert a new property?: "));
 
         newNode = new Property();
         newNode.propertyPrimaryKey = JOptionPane.showInputDialog("Enter property primary key: ");
@@ -169,10 +173,6 @@ public class InsertProp {
         } else {
             JOptionPane.showMessageDialog(null, "Property number ALREADY exists!");
         }
-//        Menu aMenu = new Menu();
-//        aMenu.setLocationRelativeTo(null);
-//        aMenu.setVisible(true);
-
         return inserted;
     }
 
@@ -195,7 +195,16 @@ public class InsertProp {
         try {
             FileWriter writter = new FileWriter(f);
             do {
-                indRec = aux.propertyPrimaryKey.concat("#").concat(aux.propertyType).concat("#").concat(aux.addressNum).concat("#").concat(aux.addressStreet).concat("#").concat(aux.addressCity).concat("#").concat(aux.addressCode).concat("#").concat(Double.toString(aux.value).concat("#").concat(aux.constructionStatus).concat("#").concat(aux.useOfProperty).concat("#").concat(Integer.toString(aux.room)).concat("#").concat(Integer.toString(aux.garage)).concat("#").concat(Integer.toString(aux.bath)).concat("#").concat(Double.toString(aux.floorArea)).concat("#").concat(Double.toString(aux.landArea)).concat("#").concat(Double.toString(aux.rates)).concat("#").concat(aux.description).concat("#").concat(aux.telephone).concat("#").concat(aux.email).concat("\n"));
+                indRec = aux.propertyPrimaryKey.concat("#").concat(aux.propertyType).concat("#").concat(aux.addressNum)
+                        .concat("#").concat(aux.addressStreet).concat("#").concat(aux.addressCity).concat("#")
+                        .concat(aux.addressCode).concat("#")
+                        .concat(Double.toString(aux.value).concat("#").concat(aux.constructionStatus).concat("#")
+                                .concat(aux.useOfProperty).concat("#").concat(Integer.toString(aux.room)).concat("#")
+                                .concat(Integer.toString(aux.garage)).concat("#").concat(Integer.toString(aux.bath))
+                                .concat("#").concat(Double.toString(aux.floorArea)).concat("#")
+                                .concat(Double.toString(aux.landArea)).concat("#").concat(Double.toString(aux.rates))
+                                .concat("#").concat(aux.description).concat("#").concat(aux.telephone).concat("#")
+                                .concat(aux.email).concat("\n"));
                 writter.write(indRec);
                 aux = aux.nextNode;
             } while (aux != null);

@@ -2,6 +2,7 @@ package coronaproperties;
 
 import java.io.File;
 import java.io.FileWriter;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -10,7 +11,7 @@ import javax.swing.JOptionPane;
  */
 public class CreateProp {
     private static class Property {
-        //fields
+        // fields
         private String propertyPrimaryKey;
         private String propertyType;
         private String addressNum;
@@ -30,8 +31,13 @@ public class CreateProp {
         private String telephone;
         private String email;
     }
+
     private static Property propertyInfo;
-    CreateProp(String propertyPrimaryKey, String propertyType, String addressNum, String addressStreet, String addressCity, String addressCode, double value, String constructionStatus, String useOfProperty, int room, int garage, int bath, double floorArea, double landArea, double rates, String description, String telephone, String email) {
+
+    CreateProp(String propertyPrimaryKey, String propertyType, String addressNum, String addressStreet,
+            String addressCity, String addressCode, double value, String constructionStatus, String useOfProperty,
+            int room, int garage, int bath, double floorArea, double landArea, double rates, String description,
+            String telephone, String email) {
         propertyInfo = new Property();
         propertyInfo.propertyPrimaryKey = propertyPrimaryKey;
         propertyInfo.propertyType = propertyType;
@@ -62,7 +68,19 @@ public class CreateProp {
     private static boolean writeData() {
         boolean written = false;
 
-        String indRec = propertyInfo.propertyPrimaryKey.concat("#").concat(propertyInfo.propertyType).concat("#").concat(propertyInfo.addressNum).concat("#").concat(propertyInfo.addressStreet).concat("#").concat(propertyInfo.addressCity).concat("#").concat(propertyInfo.addressCode).concat("#").concat(Double.toString(propertyInfo.value).concat("#").concat(propertyInfo.constructionStatus).concat("#").concat(propertyInfo.useOfProperty).concat("#").concat(Integer.toString(propertyInfo.room)).concat("#").concat(Integer.toString(propertyInfo.garage)).concat("#").concat(Integer.toString(propertyInfo.bath)).concat("#").concat(Double.toString(propertyInfo.floorArea)).concat("#").concat(Double.toString(propertyInfo.landArea)).concat("#").concat(Double.toString(propertyInfo.rates)).concat("#").concat(propertyInfo.description).concat("#").concat(propertyInfo.telephone).concat("#").concat(propertyInfo.email).concat("\n"));
+        String indRec = propertyInfo.propertyPrimaryKey.concat("#").concat(propertyInfo.propertyType).concat("#")
+                .concat(propertyInfo.addressNum).concat("#").concat(propertyInfo.addressStreet).concat("#")
+                .concat(propertyInfo.addressCity).concat("#").concat(propertyInfo.addressCode).concat("#")
+                .concat(Double.toString(propertyInfo.value).concat("#").concat(propertyInfo.constructionStatus)
+                        .concat("#").concat(propertyInfo.useOfProperty).concat("#")
+                        .concat(Integer.toString(propertyInfo.room)).concat("#")
+                        .concat(Integer.toString(propertyInfo.garage)).concat("#")
+                        .concat(Integer.toString(propertyInfo.bath)).concat("#")
+                        .concat(Double.toString(propertyInfo.floorArea)).concat("#")
+                        .concat(Double.toString(propertyInfo.landArea)).concat("#")
+                        .concat(Double.toString(propertyInfo.rates)).concat("#").concat(propertyInfo.description)
+                        .concat("#").concat(propertyInfo.telephone).concat("#").concat(propertyInfo.email)
+                        .concat("\n"));
 
         File f = new File("/home/username/CoronaProperties.txt");
         try {

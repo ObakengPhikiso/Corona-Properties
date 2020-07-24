@@ -3,6 +3,7 @@ package coronaproperties;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.DecimalFormat;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -11,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class ComputeAppreBySearch {
     private static class Property {
-        //fields
+        // fields
         private String propertyPrimaryKey;
         private String propertyType;
         private String addressNum;
@@ -31,8 +32,10 @@ public class ComputeAppreBySearch {
         private String telephone;
         private String email;
     }
+
     private static Property propertyInfo;
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
+
     ComputeAppreBySearch(String searchString, String r, String t) {
         if (!searchString.isEmpty() || !r.isEmpty() || !t.isEmpty()) {
             displayData(searchString, Double.parseDouble(r), Integer.parseInt(t));
@@ -47,6 +50,7 @@ public class ComputeAppreBySearch {
             reader = new BufferedReader(new FileReader("/home/username/CoronaProperties.txt"));
             String rec = reader.readLine();
             String remain = "";
+            String output = "";
 
             while (rec != null) {
                 propertyInfo = new Property();
@@ -104,17 +108,25 @@ public class ComputeAppreBySearch {
 
                 propertyInfo.email = remain;
 
-                //Check if searchString is in rec
-                //Case insensitive by making rec and searchString both lower case
+                // Check if searchString is in rec
+                // Case insensitive by making rec and searchString both lower case
                 if (rec.toLowerCase().contains(searchString.toLowerCase())) {
-                    double appreciation = propertyInfo.value * r * t;
+                    double appreciation = propertyInfo.value * r / 100 * t;
 
-                    System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\tValue: " + df.format(propertyInfo.value) + "\t" + "After Appreciation of " + r + "% for " + t + " year(s): " + df.format(appreciation) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
+                    output += "\n" + propertyInfo.propertyPrimaryKey + "\n" + propertyInfo.propertyType + "\n"
+                            + propertyInfo.addressNum + "\n" + propertyInfo.addressStreet + "\n"
+                            + propertyInfo.addressCity + "\n" + propertyInfo.addressCode + "\nValue: "
+                            + df.format(propertyInfo.value) + "\n" + "After Appreciation of " + r + "% for " + t
+                            + " year(s): " + df.format(appreciation) + "\n" + propertyInfo.constructionStatus + "\n"
+                            + propertyInfo.useOfProperty + "\n" + propertyInfo.room + "\n" + propertyInfo.garage + "\n"
+                            + propertyInfo.bath + "\n" + propertyInfo.floorArea + "\n" + propertyInfo.landArea + "\n"
+                            + df.format(propertyInfo.rates) + "\n" + propertyInfo.description + "\n"
+                            + propertyInfo.telephone + "\n" + propertyInfo.email + "\n\n";
                 }
-
                 rec = reader.readLine();
             }
             reader.close();
+            JOptionPane.showMessageDialog(null, output);
         } catch (Exception e) {
             e.printStackTrace();
         }

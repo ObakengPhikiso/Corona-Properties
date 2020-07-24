@@ -173,7 +173,6 @@ public class Login extends javax.swing.JFrame {
             txtPass.setEchoChar('\u0000');
         } else {
             txtPass.setEchoChar('*');
-//            txtPass.setEchoChar('\u25CF');
         }
     }//GEN-LAST:event_jCheckBoxShowPassActionPerformed
 

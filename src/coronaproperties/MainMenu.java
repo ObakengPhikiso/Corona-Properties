@@ -54,6 +54,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         btnDisplay.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnDisplay.setText("View Property");
+        btnDisplay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDisplayActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         btnUpdate.setText("Update Property");
@@ -174,6 +179,23 @@ public class MainMenu extends javax.swing.JFrame {
         UpdateProp aUpdateProp = new UpdateProp();
         System.gc();
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayActionPerformed
+        this.dispose();
+
+        //Open ReadPropByMenu
+        ReadPropByMenu aReadPropByMenu = new ReadPropByMenu();
+
+        aReadPropByMenu.setTitle("Corona View By Menu");
+        aReadPropByMenu.setOpacity((float) 0.9);
+        aReadPropByMenu.setBackground(new Color(0, 0, 0, 0));
+        aReadPropByMenu.setIconImage(Toolkit.getDefaultToolkit().
+                getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+        aReadPropByMenu.setLocationRelativeTo(null);
+        aReadPropByMenu.setVisible(true);
+
+        System.gc();
+    }//GEN-LAST:event_btnDisplayActionPerformed
 
     /**
      * @param args the command line arguments

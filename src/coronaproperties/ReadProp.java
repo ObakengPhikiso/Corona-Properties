@@ -2,6 +2,7 @@ package coronaproperties;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -30,6 +31,7 @@ public class ReadProp {
         private String email;
     }
     private static Property propertyInfo;
+    private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
     ReadProp() {
         displayData();
     }
@@ -96,6 +98,9 @@ public class ReadProp {
                 remain = remain.substring(remain.indexOf("#") + 1, remain.length());
 
                 propertyInfo.email = remain;
+
+                System.out.println(propertyInfo.propertyPrimaryKey + "\t" + propertyInfo.propertyType + "\t" + propertyInfo.addressNum + "\t" + propertyInfo.addressStreet + "\t" + propertyInfo.addressCity + "\t" + propertyInfo.addressCode + "\t" + df.format(propertyInfo.value) + "\t" + propertyInfo.constructionStatus + "\t" + propertyInfo.useOfProperty + "\t" + propertyInfo.room + "\t" + propertyInfo.garage + "\t" + propertyInfo.bath + "\t" + propertyInfo.floorArea + "\t" + propertyInfo.landArea + "\t" + df.format(propertyInfo.rates) + "\t" + propertyInfo.description + "\t" + propertyInfo.telephone + "\t" + propertyInfo.email);
+
                 rec = reader.readLine();
             }
             reader.close();

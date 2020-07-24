@@ -37,6 +37,7 @@ public class ReadPropByMenu extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         lblHeading = new javax.swing.JLabel();
         btnViewByStatus = new javax.swing.JButton();
+        btnViewBySearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -78,6 +79,14 @@ public class ReadPropByMenu extends javax.swing.JFrame {
             }
         });
 
+        btnViewBySearch.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        btnViewBySearch.setText("View By Search");
+        btnViewBySearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewBySearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,14 +101,16 @@ public class ReadPropByMenu extends javax.swing.JFrame {
                                 .addComponent(btnCancel))
                             .addComponent(btnViewAll)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(315, 315, 315)
-                        .addComponent(btnViewByCity))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
-                        .addComponent(btnViewByStatus))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(268, 268, 268)
-                        .addComponent(lblHeading)))
+                        .addComponent(lblHeading))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnViewBySearch)
+                            .addComponent(btnViewByStatus)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(311, 311, 311)
+                        .addComponent(btnViewByCity)))
                 .addContainerGap(271, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,11 +120,13 @@ public class ReadPropByMenu extends javax.swing.JFrame {
                 .addComponent(lblHeading)
                 .addGap(63, 63, 63)
                 .addComponent(btnViewAll)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addGap(65, 65, 65)
                 .addComponent(btnViewByStatus)
-                .addGap(87, 87, 87)
+                .addGap(70, 70, 70)
                 .addComponent(btnViewByCity)
-                .addGap(99, 99, 99)
+                .addGap(62, 62, 62)
+                .addComponent(btnViewBySearch)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(btnCancel)
                 .addGap(44, 44, 44))
         );
@@ -174,6 +187,11 @@ public class ReadPropByMenu extends javax.swing.JFrame {
         ReadPropByCity aReadPropByCity = new ReadPropByCity(addressCity);
     }//GEN-LAST:event_btnViewByCityActionPerformed
 
+    private void btnViewBySearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBySearchActionPerformed
+        String searchString = JOptionPane.showInputDialog("What are you looking for? (Eg: City, Completed, Address, Value, Use, Rates, etc): ");
+        ReadPropBySearch aReadPropBySearch = new ReadPropBySearch(searchString);
+    }//GEN-LAST:event_btnViewBySearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,6 +239,7 @@ public class ReadPropByMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnViewAll;
     private javax.swing.JButton btnViewByCity;
+    private javax.swing.JButton btnViewBySearch;
     private javax.swing.JButton btnViewByStatus;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblHeading;

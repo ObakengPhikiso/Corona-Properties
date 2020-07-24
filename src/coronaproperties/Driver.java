@@ -12,15 +12,24 @@ public class Driver {
 //        LoadingScreen sc = new LoadingScreen();
 
 //Open menu
-        MainMenu menu = new MainMenu();
+//        MainMenu menu = new MainMenu();
+//
+//        menu.setTitle("Corona Main Menu");
+//        menu.setOpacity((float) 0.9);
+//        menu.setBackground(new Color(0, 0, 0, 0));
+//        menu.setIconImage(Toolkit.getDefaultToolkit().
+//                getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+//        menu.setLocationRelativeTo(null);
+//        menu.setVisible(true);
+        ReadPropByMenu aReadPropByMenu = new ReadPropByMenu();
 
-        menu.setTitle("Corona Main Menu");
-        menu.setOpacity((float) 0.9);
-        menu.setBackground(new Color(0, 0, 0, 0));
-        menu.setIconImage(Toolkit.getDefaultToolkit().
+        aReadPropByMenu.setTitle("Corona View By Menu");
+        aReadPropByMenu.setOpacity((float) 0.9);
+        aReadPropByMenu.setBackground(new Color(0, 0, 0, 0));
+        aReadPropByMenu.setIconImage(Toolkit.getDefaultToolkit().
                 getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
-        menu.setLocationRelativeTo(null);
-        menu.setVisible(true);
+        aReadPropByMenu.setLocationRelativeTo(null);
+        aReadPropByMenu.setVisible(true);
     }
 
 }

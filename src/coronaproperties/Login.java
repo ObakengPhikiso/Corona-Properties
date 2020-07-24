@@ -54,6 +54,7 @@ public class Login extends javax.swing.JFrame {
 
         txtEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtEmail.setMinimumSize(new java.awt.Dimension(64, 29));
+        txtEmail.setOpaque(false);
         txtEmail.setPreferredSize(new java.awt.Dimension(64, 29));
 
         btnLogin.setFont(new java.awt.Font("Arial", 0, 19)); // NOI18N
@@ -72,7 +73,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtPass.setFont(new java.awt.Font("Arial", 0, 19)); // NOI18N
+        txtPass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtPass.setOpaque(false);
+        txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPassKeyTyped(evt);
+            }
+        });
 
         btnCancel.setFont(new java.awt.Font("Arial", 0, 19)); // NOI18N
         btnCancel.setText("Cancel");
@@ -165,7 +172,8 @@ public class Login extends javax.swing.JFrame {
         if (jCheckBoxShowPass.isSelected()) {
             txtPass.setEchoChar('\u0000');
         } else {
-            txtPass.setEchoChar('\u25CF');
+            txtPass.setEchoChar('*');
+//            txtPass.setEchoChar('\u25CF');
         }
     }//GEN-LAST:event_jCheckBoxShowPassActionPerformed
 
@@ -179,6 +187,10 @@ public class Login extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped
+        txtPass.setEchoChar('*');
+    }//GEN-LAST:event_txtPassKeyTyped
 
     /**
      * @param args the command line arguments

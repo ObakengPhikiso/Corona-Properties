@@ -34,7 +34,6 @@ public class CompViewByCity {
     private static Property propertyInfo;
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
     CompViewByCity(String addressCity1, String addressCity2) {
-
         if (!addressCity1.isEmpty() || !addressCity2.isEmpty()) {
             displayData(addressCity1, addressCity2);
         } else {

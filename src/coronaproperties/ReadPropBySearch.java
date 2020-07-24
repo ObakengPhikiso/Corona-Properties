@@ -34,8 +34,6 @@ public class ReadPropBySearch {
     private static Property propertyInfo;
     private static DecimalFormat df = new DecimalFormat("R ###,###,###,###,###,###.00");
     ReadPropBySearch(String searchString) {
-        displayData(searchString);
-
         if (!searchString.isEmpty()) {
             displayData(searchString);
         } else {

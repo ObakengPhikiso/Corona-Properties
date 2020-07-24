@@ -21,7 +21,6 @@ public class Driver {
                 getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
-        ReadPropByMenu aReadPropByMenu = new ReadPropByMenu();
     }
 
 }

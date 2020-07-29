@@ -23,7 +23,7 @@ Find out how to build a CRUD system. Authors Obakeng Phikiso and Melvin Kisten t
 
 3. Run Apache NetBeans and choose Open Project
 
-4. Update paths to text files "auth.txt" and "CoronaProperties.txt"
+4. Credentials and text files "auth.txt" and "CoronaProperties.txt", are in root directory of the project
 
 5. Press play button to run the program
 

@@ -23,8 +23,8 @@ public class InitFunction {
         spl.setTitle("Corona Properties");
         spl.setOpacity((float) 0.9);
         spl.setBackground(new Color(0, 0, 0, 0));
-        spl.setIconImage(Toolkit.getDefaultToolkit().
-                getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+        spl.setIconImage(Toolkit.getDefaultToolkit()
+                .getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
         spl.setLocationRelativeTo(null);
         spl.setVisible(true);
         try {
@@ -35,24 +35,24 @@ public class InitFunction {
 
                 if (i == 100) {
 
-                    //Close SplashScreen screen
+                    // Close SplashScreen screen
                     spl.dispose();
                     System.gc();
 
-                    //Open Login Screen
+                    // Open Login Screen
                     Login loginScreen = new Login();
 
                     loginScreen.setTitle("Login");
                     loginScreen.setOpacity((float) 0.9);
                     loginScreen.setBackground(new Color(0, 0, 0, 0));
-                    loginScreen.setIconImage(Toolkit.getDefaultToolkit().
-                            getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
+                    loginScreen.setIconImage(Toolkit.getDefaultToolkit()
+                            .getImage(SetJFrame_Icon.class.getResource("/icons/icons8_House_100px.png")));
                     loginScreen.setLocationRelativeTo(null);
                     loginScreen.setVisible(true);
                 }
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

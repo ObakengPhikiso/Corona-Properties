@@ -43,7 +43,7 @@ public class ReadPropAll {
     private static void displayData() {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("/home/username/CoronaProperties.txt"));
+            reader = new BufferedReader(new FileReader("CoronaProperties.txt"));
             String rec = reader.readLine();
             String remain = "";
             String output = "";
@@ -116,7 +116,7 @@ public class ReadPropAll {
             reader.close();
             JOptionPane.showMessageDialog(null, output);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

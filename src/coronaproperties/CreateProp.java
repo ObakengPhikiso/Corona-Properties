@@ -82,7 +82,7 @@ public class CreateProp {
                         .concat("#").concat(propertyInfo.telephone).concat("#").concat(propertyInfo.email)
                         .concat("\n"));
 
-        File f = new File("/home/username/CoronaProperties.txt");
+        File f = new File("CoronaProperties.txt");
         try {
             FileWriter writter = null;
             if (f.createNewFile()) {
@@ -95,7 +95,7 @@ public class CreateProp {
             }
             written = true;
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return written;
     }

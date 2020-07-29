@@ -47,7 +47,7 @@ public class ReadPropByStatus {
     private static void displayData(String constructionStatus) {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("/home/username/CoronaProperties.txt"));
+            reader = new BufferedReader(new FileReader("CoronaProperties.txt"));
             String rec = reader.readLine();
             String remain = "";
             String output = "";
@@ -125,7 +125,7 @@ public class ReadPropByStatus {
             reader.close();
             JOptionPane.showMessageDialog(null, output);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

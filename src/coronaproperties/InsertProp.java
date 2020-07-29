@@ -46,7 +46,7 @@ public class InsertProp {
     private static void readDataToQueue() {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("/home/username/CoronaProperties.txt"));
+            reader = new BufferedReader(new FileReader("CoronaProperties.txt"));
             String rec = reader.readLine();
             String remain = "";
 
@@ -118,7 +118,7 @@ public class InsertProp {
             }
             reader.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -189,7 +189,7 @@ public class InsertProp {
     }
 
     private static void moveDataToFile() {
-        File f = new File("/home/username/CoronaProperties.txt");
+        File f = new File("CoronaProperties.txt");
         String indRec = "";
         aux = head;
         try {
@@ -210,7 +210,7 @@ public class InsertProp {
             } while (aux != null);
             writter.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

@@ -20,10 +20,7 @@ public class Auth {
     private static Authentication authentic;
 
     Auth(String emailString, String passString) {
-        getData();
-
         if (authenticate(emailString, passString)) {
-
             closeLoginScreen();
             openMenu();
         } else {
@@ -41,10 +38,12 @@ public class Auth {
         }
     }
 
-    private static void getData() {
+    private static boolean authenticate(String emailString, String passString) {
+        boolean correct = false;
+
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("/home/username/auth.txt"));
+            reader = new BufferedReader(new FileReader("auth.txt"));
             String rec = reader.readLine();
             String remain = "";
 
@@ -56,19 +55,16 @@ public class Auth {
 
                 authentic.passString = remain;
 
+                // Authenticating
+                if (emailString.compareTo(authentic.emailString) == 0
+                        && passString.compareTo(authentic.passString) == 0) {
+                    correct = true;
+                }
                 rec = reader.readLine();
             }
             reader.close();
         } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static boolean authenticate(String emailString, String passString) {
-        boolean correct = false;
-
-        if (emailString.compareTo(authentic.emailString) == 0 && passString.compareTo(authentic.passString) == 0) {
-            correct = true;
+            System.out.println(e.getMessage());
         }
         return correct;
     }

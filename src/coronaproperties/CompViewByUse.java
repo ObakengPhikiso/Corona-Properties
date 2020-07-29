@@ -47,7 +47,7 @@ public class CompViewByUse {
     private static void displayData(String useOfProperty1, String useOfProperty2) {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("/home/username/CoronaProperties.txt"));
+            reader = new BufferedReader(new FileReader("CoronaProperties.txt"));
             String rec = reader.readLine();
             String remain = "";
             String output = "";
@@ -141,7 +141,7 @@ public class CompViewByUse {
             reader.close();
             JOptionPane.showMessageDialog(null, output);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

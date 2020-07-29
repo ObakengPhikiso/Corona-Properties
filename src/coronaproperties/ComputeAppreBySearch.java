@@ -111,13 +111,14 @@ public class ComputeAppreBySearch {
                 // Check if searchString is in rec
                 // Case insensitive by making rec and searchString both lower case
                 if (rec.toLowerCase().contains(searchString.toLowerCase())) {
-                    double appreciation = (propertyInfo.value * (r / 100) * t) + propertyInfo.value;
+                    double appreciation = (propertyInfo.value * (r / 100) * t);
+                    double valueAfterAppre = propertyInfo.value + appreciation;
 
                     output += "\n" + propertyInfo.propertyPrimaryKey + "\n" + propertyInfo.propertyType + "\n"
                             + propertyInfo.addressNum + "\n" + propertyInfo.addressStreet + "\n"
                             + propertyInfo.addressCity + "\n" + propertyInfo.addressCode + "\nValue: "
                             + df.format(propertyInfo.value) + "\n" + "After Appreciation of " + r + "% for " + t
-                            + " year(s): " + df.format(appreciation) + "\n" + propertyInfo.constructionStatus + "\n"
+                            + " year(s): " + df.format(valueAfterAppre) + "\n" + propertyInfo.constructionStatus + "\n"
                             + propertyInfo.useOfProperty + "\n" + propertyInfo.room + "\n" + propertyInfo.garage + "\n"
                             + propertyInfo.bath + "\n" + propertyInfo.floorArea + "\n" + propertyInfo.landArea + "\n"
                             + df.format(propertyInfo.rates) + "\n" + propertyInfo.description + "\n"
